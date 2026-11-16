@@ -68,7 +68,7 @@ export const SITE_CONFIG = {
     "Evamore Technologies builds fast, search-friendly websites for home-service businesses and clinics in the Greater Toronto Area, and sets up the follow-up that turns quote requests into booked jobs.",
   footerOneLiner:
     "Websites and quote follow-up for home-service businesses and clinics in the Greater Toronto Area.",
-  email: "[EMAIL_ADDRESS]",
+  email: "kenny@evamoretechnologies.com",
   phone: "+254 703 546 026",
   mailingAddress: "70512-00200, Nairobi, Kenya",
   hours: "Mon–Fri, 9:00 AM – 5:00 PM EST (Toronto Time)",
