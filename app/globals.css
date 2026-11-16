@@ -1,26 +1,363 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+:root,
+html[data-theme="light"] {
+  --bg-canvas: #ffffff;
+  --bg-peach: #fdf3ee;
+  --bg-blush: #ffe4de;
+  --bg-soft-btn: #fff0ea;
+  --bg-dark-block: #121214;
+  --bg-dark-card: #1b1b1f;
+  --bg-dark-quote: #151518;
+
+  --glass-surface: rgba(255, 255, 255, 0.94);
+  --glass-border: rgba(20, 20, 22, 0.08);
+  --divider-line: #d4d4d8;
+
+  --text-primary: #121214;
+  --text-secondary: #52525b;
+  --text-muted: #71717a;
+
+  --orange-primary: #ff6b00;
+  --orange-light: #ff8533;
+  --green-primary: #00b64f;
+
+  --nav-bg: rgba(255, 255, 255, 0.88);
+}
+
+html[data-theme="dark"] {
+  --bg-canvas: #0b0b0e;
+  --bg-peach: #151110;
+  --bg-blush: rgba(255, 107, 0, 0.16);
+  --bg-soft-btn: rgba(255, 107, 0, 0.14);
+  --bg-dark-block: #121214;
+  --bg-dark-card: #1b1b1f;
+  --bg-dark-quote: #151518;
+
+  --glass-surface: rgba(24, 24, 29, 0.92);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --divider-line: #3f3f46;
+
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+
+  --orange-primary: #ff6b00;
+  --orange-light: #ff8533;
+  --green-primary: #00b64f;
+
+  --nav-bg: rgba(11, 11, 14, 0.88);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--bg-canvas);
+  --color-foreground: var(--text-primary);
+  --font-sans: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  transition: background-color 200ms ease, color 200ms ease;
+  overflow-x: hidden;
+}
+
+/* Omotive Exact Typography: Clean Medium (500), tight negative tracking */
+.om-h1 {
+  font-weight: 500;
+  letter-spacing: -0.032em;
+  line-height: 1.08;
+}
+
+.om-h2 {
+  font-weight: 500;
+  letter-spacing: -0.028em;
+  line-height: 1.14;
+}
+
+/* Omotive Primary Pill Button with Circled Arrow & Lively Hover */
+.om-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #ff7a1a 0%, #ff6200 60%, #e65500 100%);
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 0.85rem 1.75rem;
+  box-shadow: 0 12px 28px -8px rgba(255, 98, 0, 0.48);
+  transition: transform 220ms ease, box-shadow 220ms ease, filter 220ms ease;
+}
+
+.om-btn-primary:hover {
+  transform: scale(1.03);
+  filter: brightness(1.05);
+  box-shadow: 0 16px 36px -6px rgba(255, 98, 0, 0.65);
+}
+
+.om-btn-primary svg {
+  transition: transform 220ms ease;
+}
+
+.om-btn-primary:hover svg {
+  transform: translateX(3px);
+}
+
+/* Omotive Soft Peach Secondary Pill Button */
+.om-btn-soft {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border-radius: 9999px;
+  background: var(--bg-soft-btn);
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 0.85rem 1.65rem;
+  transition: background-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+}
+
+.om-btn-soft:hover {
+  background: rgba(255, 107, 0, 0.2);
+  transform: scale(1.025);
+  box-shadow: 0 10px 24px -8px rgba(255, 107, 0, 0.22);
+}
+
+.om-btn-soft svg {
+  transition: transform 220ms ease;
+}
+
+.om-btn-soft:hover svg {
+  transform: translateX(3px);
+}
+
+/* Floating White / Glass Card */
+.om-floating-card {
+  background: var(--glass-surface);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.09);
+  transition: border-color 240ms ease, box-shadow 240ms ease, transform 240ms ease;
+}
+
+.om-floating-card:hover {
+  border-color: rgba(255, 107, 0, 0.35);
+  box-shadow: 0 28px 65px -12px rgba(255, 107, 0, 0.14);
+}
+
+/* Hand-drawn Left-to-Right Underline Animation on Page Load */
+@keyframes evDrawUnderline {
+  0% {
+    stroke-dashoffset: 1;
+    opacity: 0.25;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+.om-draw-underline {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: evDrawUnderline 950ms cubic-bezier(0.22, 1, 0.36, 1) 180ms forwards;
+}
+
+/* Pure opacity + subtle scale cross-fade (Strictly no bottom-up translateY animations) */
+@keyframes evFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.ev-fade {
+  animation: evFadeIn 260ms ease-out forwards;
+}
+
+/* Infinite Horizontal Categories Carousel Moving Left-to-Right with Fade on Both Ends */
+@keyframes evMarqueeLTR {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0%, 0, 0);
+  }
+}
+
+.om-marquee-mask {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+}
+
+.om-marquee-track {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: max-content;
+  will-change: transform;
+  animation: evMarqueeLTR 26s linear infinite;
+}
+
+.om-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Smooth Concentric Ripple Wave when Hovering "Built for Mobile" Card */
+@keyframes evConcentricRippleDom {
+  0% {
+    transform: translate(-50%, -50%) scale(0.65);
+    opacity: 0.9;
+    border-color: #00b64f;
+  }
+  75% {
+    transform: translate(-50%, -50%) scale(1.85);
+    opacity: 0.35;
+    border-color: #00b64f;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.25);
+    opacity: 0;
+    border-color: #00b64f;
+  }
+}
+
+.om-ripple-circle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  border-radius: 9999px;
+  border: 1.5px solid rgba(161, 161, 170, 0.28);
+  pointer-events: none;
+  transition: border-color 250ms ease, opacity 250ms ease;
+}
+
+.om-mobile-card:hover .om-ripple-circle-1 {
+  border-width: 2px;
+  animation: evConcentricRippleDom 1.6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.om-mobile-card:hover .om-ripple-circle-2 {
+  border-width: 2px;
+  animation: evConcentricRippleDom 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.4s infinite;
+}
+
+.om-mobile-card:hover .om-ripple-circle-3 {
+  border-width: 2px;
+  animation: evConcentricRippleDom 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.8s infinite;
+}
+
+/* Equalizer Bar Pulse for Hero 99% Card */
+@keyframes evBarPulse {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.68);
+  }
+}
+
+.om-bar-1 {
+  transform-origin: bottom;
+  animation: evBarPulse 2.4s ease-in-out infinite;
+}
+.om-bar-2 {
+  transform-origin: bottom;
+  animation: evBarPulse 2.9s ease-in-out 0.3s infinite;
+}
+.om-bar-3 {
+  transform-origin: bottom;
+  animation: evBarPulse 2.1s ease-in-out 0.6s infinite;
+}
+.om-bar-4 {
+  transform-origin: bottom;
+  animation: evBarPulse 2.7s ease-in-out 0.2s infinite;
+}
+.om-bar-5 {
+  transform-origin: bottom;
+  animation: evBarPulse 2.3s ease-in-out 0.5s infinite;
+}
+
+/* Subtle Pulse Ring for Play Circle */
+@keyframes evSoftPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(255, 107, 0, 0);
+  }
+}
+
+.om-play-pulse {
+  animation: evSoftPulse 2.6s infinite;
+}
+
+/* Legacy utility classes */
+.ev-glass-nav {
+  background: var(--nav-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.ev-glass-card {
+  background: var(--glass-surface);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 18px 40px -15px rgba(0, 0, 0, 0.07);
+}
+
+.ev-obsidian-glass {
+  background: var(--bg-dark-block);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.ev-warm-section {
+  background-color: var(--bg-peach);
+}
+
+.ev-orange-btn {
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #ff7a1a 0%, #ff6200 60%, #e65500 100%);
+  color: #ffffff;
+  box-shadow: 0 10px 25px -6px rgba(255, 107, 0, 0.4);
+}
+
+.ev-secondary-btn {
+  border-radius: 9999px;
+  background: var(--bg-soft-btn);
+  color: var(--text-primary);
 }

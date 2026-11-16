@@ -1,0 +1,167 @@
+import React from "react";
+
+interface LogoProps {
+  className?: string;
+  markOnly?: boolean;
+  forceDarkText?: boolean;
+  uid?: string;
+}
+
+export function Logo({
+  className = "h-10 w-auto",
+  markOnly = false,
+  forceDarkText = false,
+  uid = "nav",
+}: LogoProps) {
+  const orangeId = `ev-orange-${uid}`;
+  const glassFillId = `ev-glass-fill-${uid}`;
+  const glassRimId = `ev-glass-rim-${uid}`;
+  const innerGlassId = `ev-inner-glass-${uid}`;
+
+  if (markOnly) {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 120 120"
+        fill="none"
+        className={className}
+        aria-label="Evamore Technologies Mark"
+      >
+        <defs>
+          <linearGradient id={orangeId} x1="18" y1="14" x2="102" y2="106" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#FF8A3D" />
+            <stop offset="50%" stopColor="#FF6B00" />
+            <stop offset="100%" stopColor="#D94E00" />
+          </linearGradient>
+          <linearGradient id={glassFillId} x1="20" y1="12" x2="100" y2="108" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#1F1A17" />
+            <stop offset="55%" stopColor="#121215" />
+            <stop offset="100%" stopColor="#0A0A0C" />
+          </linearGradient>
+          <linearGradient id={glassRimId} x1="24" y1="14" x2="96" y2="106" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.28" />
+            <stop offset="45%" stopColor="#FF7A1A" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="#FF6B00" stopOpacity="0.12" />
+          </linearGradient>
+          <linearGradient id={innerGlassId} x1="52" y1="32" x2="96" y2="88" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stopColor="#FF7A1A" stopOpacity="0.28" />
+            <stop offset="100%" stopColor="#FF6B00" stopOpacity="0.06" />
+          </linearGradient>
+        </defs>
+        <path
+          d="M53.07 13.00 C57.36 10.52 62.64 10.52 66.93 13.00 L97.57 30.69 C101.86 33.17 104.50 37.74 104.50 42.69 L104.50 77.31 C104.50 82.26 101.86 86.83 97.57 89.31 L66.93 107.00 C62.64 109.48 57.36 109.48 53.07 107.00 L22.43 89.31 C18.14 86.83 15.50 82.26 15.50 77.31 L15.50 42.69 C15.50 37.74 18.14 33.17 22.43 30.69 Z"
+          fill={`url(#${glassFillId})`}
+          stroke={`url(#${glassRimId})`}
+          strokeWidth="2.5"
+        />
+        <path
+          d="M60 22 L91 39.9 C93.5 41.3 95 44.0 95 46.9 L95 73.1 C95 76.0 93.5 78.7 91 80.1 L60 98 L60 22 Z"
+          fill={`url(#${innerGlassId})`}
+        />
+        <path
+          d="M78 33.5 L62.6 24.6 C60.99 23.67 59.01 23.67 57.4 24.6 L31.2 39.7 C29.22 40.84 28 42.95 28 45.24 L28 74.76 C28 77.05 29.22 79.16 31.2 80.3 L57.4 95.4 C59.01 96.33 60.99 96.33 62.6 95.4 L78 86.5"
+          stroke={`url(#${orangeId})`}
+          strokeWidth="9.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M30 60 L79 60 M66 47.5 L80.5 60 L66 72.5"
+          stroke="#FFFFFF"
+          strokeWidth="8.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <circle cx="88" cy="40" r="5" fill="#FF6B00" />
+        <circle cx="88" cy="40" r="8.5" stroke="#FF8A3D" strokeWidth="1.5" strokeOpacity="0.45" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 420 120"
+      fill="none"
+      className={className}
+      aria-label="Evamore Technologies"
+    >
+      <defs>
+        <linearGradient id={orangeId} x1="18" y1="14" x2="102" y2="106" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#FF8A3D" />
+          <stop offset="50%" stopColor="#FF6B00" />
+          <stop offset="100%" stopColor="#D94E00" />
+        </linearGradient>
+        <linearGradient id={glassFillId} x1="20" y1="12" x2="100" y2="108" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#1F1A17" />
+          <stop offset="55%" stopColor="#121215" />
+          <stop offset="100%" stopColor="#0A0A0C" />
+        </linearGradient>
+        <linearGradient id={glassRimId} x1="24" y1="14" x2="96" y2="106" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.28" />
+          <stop offset="45%" stopColor="#FF7A1A" stopOpacity="0.35" />
+          <stop offset="100%" stopColor="#FF6B00" stopOpacity="0.12" />
+        </linearGradient>
+        <linearGradient id={innerGlassId} x1="52" y1="32" x2="96" y2="88" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#FF7A1A" stopOpacity="0.28" />
+          <stop offset="100%" stopColor="#FF6B00" stopOpacity="0.06" />
+        </linearGradient>
+      </defs>
+
+      <g>
+        <path
+          d="M53.07 13.00 C57.36 10.52 62.64 10.52 66.93 13.00 L97.57 30.69 C101.86 33.17 104.50 37.74 104.50 42.69 L104.50 77.31 C104.50 82.26 101.86 86.83 97.57 89.31 L66.93 107.00 C62.64 109.48 57.36 109.48 53.07 107.00 L22.43 89.31 C18.14 86.83 15.50 82.26 15.50 77.31 L15.50 42.69 C15.50 37.74 18.14 33.17 22.43 30.69 Z"
+          fill={`url(#${glassFillId})`}
+          stroke={`url(#${glassRimId})`}
+          strokeWidth="2.5"
+        />
+        <path
+          d="M60 22 L91 39.9 C93.5 41.3 95 44.0 95 46.9 L95 73.1 C95 76.0 93.5 78.7 91 80.1 L60 98 L60 22 Z"
+          fill={`url(#${innerGlassId})`}
+        />
+        <path
+          d="M78 33.5 L62.6 24.6 C60.99 23.67 59.01 23.67 57.4 24.6 L31.2 39.7 C29.22 40.84 28 42.95 28 45.24 L28 74.76 C28 77.05 29.22 79.16 31.2 80.3 L57.4 95.4 C59.01 96.33 60.99 96.33 62.6 95.4 L78 86.5"
+          stroke={`url(#${orangeId})`}
+          strokeWidth="9.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M30 60 L79 60 M66 47.5 L80.5 60 L66 72.5"
+          stroke="#FFFFFF"
+          strokeWidth="8.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <circle cx="88" cy="40" r="5" fill="#FF6B00" />
+        <circle cx="88" cy="40" r="8.5" stroke="#FF8A3D" strokeWidth="1.5" strokeOpacity="0.45" />
+      </g>
+
+      <g transform="translate(124, 0)">
+        <text
+          x="0"
+          y="64"
+          fill={forceDarkText ? "#FAFAFA" : "currentColor"}
+          fontFamily="var(--font-jakarta), system-ui, -apple-system, sans-serif"
+          fontSize="44"
+          fontWeight="700"
+          letterSpacing="-1.2"
+        >
+          Evamore
+        </text>
+        <rect x="184" y="52" width="8" height="8" rx="2.5" fill="#FF6B00" />
+        <text
+          x="2"
+          y="90"
+          fill="#FF6B00"
+          fontFamily="var(--font-jakarta), system-ui, -apple-system, sans-serif"
+          fontSize="13.5"
+          fontWeight="700"
+          letterSpacing="5.5"
+        >
+          TECHNOLOGIES
+        </text>
+      </g>
+    </svg>
+  );
+}
