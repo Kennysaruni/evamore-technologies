@@ -197,9 +197,9 @@ export default function HomePage() {
               </svg>
 
               {/* PIECE 1: Top-Left Matte Black "99%" Card with Seamless Top-Right Cutout */}
-              <div className="group absolute left-0 top-6 z-20 w-[162px] rounded-[26px] bg-[#141416] p-5 text-white shadow-xl transition-transform duration-300 hover:scale-[1.02] sm:w-[172px]">
-                {/* Top-Right Inverted-Corner Cutout Notch holding the 56x56 Rounded Square Photo */}
-                <div className="absolute -right-[1px] -top-[1px] z-10 rounded-bl-[20px] bg-[var(--bg-canvas)] pb-2 pl-2">
+              <div className="group absolute left-0 top-4 z-20 w-[150px] rounded-[24px] bg-[#141416] p-4 text-white shadow-xl transition-transform duration-300 hover:scale-[1.02] sm:top-6 sm:w-[172px] sm:rounded-[26px] sm:p-5">
+                {/* Top-Right Inverted-Corner Cutout Notch holding the Rounded Square Photo */}
+                <div className="absolute -right-[1px] -top-[1px] z-10 rounded-bl-[18px] bg-[var(--bg-canvas)] pb-1.5 pl-1.5 sm:rounded-bl-[20px] sm:pb-2 sm:pl-2">
                   <InvertedFillet
                     position="top-right"
                     size={16}
@@ -213,41 +213,41 @@ export default function HomePage() {
                   <img
                     src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&q=80"
                     alt="Quote response specialist"
-                    className="h-14 w-14 rounded-[16px] object-cover shadow-md transition-transform duration-300 group-hover:scale-105"
+                    className="h-12 w-12 rounded-[14px] object-cover shadow-md transition-transform duration-300 group-hover:scale-105 sm:h-14 sm:w-14 sm:rounded-[16px]"
                   />
                 </div>
 
-                <p className="mt-3 text-[34px] font-normal leading-none tracking-tight text-white">
-                  99<span className="text-lg">%</span>
+                <p className="mt-2 text-[28px] font-normal leading-none tracking-tight text-white sm:mt-3 sm:text-[34px]">
+                  99<span className="text-base sm:text-lg">%</span>
                 </p>
-                <p className="mt-2 max-w-[125px] text-[10.5px] leading-[1.35] text-zinc-400">
+                <p className="mt-1.5 max-w-[125px] text-[10px] leading-[1.35] text-zinc-400 sm:mt-2 sm:text-[10.5px]">
                   Same-day alert when a quote request arrives.
                 </p>
 
                 {/* 5 Vertical Dark Track Capsules with Animated Orange Equalizer Bars */}
-                <div className="mt-4 flex h-14 items-end justify-between gap-2">
-                  <div className="relative h-full w-3.5 rounded-full bg-[#242429]">
-                    <div className="om-bar-1 absolute bottom-0 h-8 w-full rounded-full bg-gradient-to-t from-[#FF5500] to-[#FF944D]" />
+                <div className="mt-3.5 flex h-12 items-end justify-between gap-1.5 sm:mt-4 sm:h-14 sm:gap-2">
+                  <div className="relative h-full w-3 rounded-full bg-[#242429] sm:w-3.5">
+                    <div className="om-bar-1 absolute bottom-0 h-7 w-full rounded-full bg-gradient-to-t from-[#FF5500] to-[#FF944D] sm:h-8" />
                   </div>
-                  <div className="relative h-full w-3.5 rounded-full bg-[#242429]">
-                    <div className="om-bar-2 absolute bottom-0 h-6 w-full rounded-full bg-gradient-to-t from-[#FF5500] to-[#FF944D]" />
+                  <div className="relative h-full w-3 rounded-full bg-[#242429] sm:w-3.5">
+                    <div className="om-bar-2 absolute bottom-0 h-5 w-full rounded-full bg-gradient-to-t from-[#FF5500] to-[#FF944D] sm:h-6" />
                   </div>
-                  <div className="relative h-full w-3.5 rounded-full bg-[#242429]">
-                    <div className="om-bar-3 absolute bottom-0 h-10 w-full rounded-full bg-gradient-to-t from-[#FF5500] to-[#FF944D]" />
+                  <div className="relative h-full w-3 rounded-full bg-[#242429] sm:w-3.5">
+                    <div className="om-bar-3 absolute bottom-0 h-9 w-full rounded-full bg-gradient-to-t from-[#FF5500] to-[#FF944D] sm:h-10" />
                   </div>
-                  <div className="relative h-full w-3.5 rounded-full bg-[#242429]">
-                    <div className="om-bar-4 absolute bottom-0 h-8 w-full rounded-full bg-gradient-to-t from-[#FF5500] to-[#FF944D]" />
+                  <div className="relative h-full w-3 rounded-full bg-[#242429] sm:w-3.5">
+                    <div className="om-bar-4 absolute bottom-0 h-7 w-full rounded-full bg-gradient-to-t from-[#FF5500] to-[#FF944D] sm:h-8" />
                   </div>
-                  <div className="relative h-full w-3.5 rounded-full bg-[#242429]">
-                    <div className="om-bar-5 absolute bottom-0 h-6 w-full rounded-full bg-gradient-to-t from-[#FF5500] to-[#FF944D]" />
+                  <div className="relative h-full w-3 rounded-full bg-[#242429] sm:w-3.5">
+                    <div className="om-bar-5 absolute bottom-0 h-5 w-full rounded-full bg-gradient-to-t from-[#FF5500] to-[#FF944D] sm:h-6" />
                   </div>
                 </div>
               </div>
 
               {/* PIECE 2: Main Portrait Photo on Right with Seamless Bottom-Right Cutout */}
-              <div className="group absolute right-0 top-14 z-10 h-[285px] w-[250px] sm:h-[305px] sm:w-[275px]">
+              <div className="group absolute right-0 top-14 z-10 h-[275px] w-[225px] sm:h-[305px] sm:w-[275px]">
                 {/* Inner overflow-hidden photo wrapper */}
-                <div className="h-full w-full overflow-hidden rounded-[28px]">
+                <div className="h-full w-full overflow-hidden rounded-[26px] sm:rounded-[28px]">
                   <img
                     src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=85"
                     alt="Smiling business owner in studio"
@@ -256,7 +256,7 @@ export default function HomePage() {
                 </div>
 
                 {/* Seamless Bottom-Right Inverted-Corner Cutout Notch holding the Play Button */}
-                <div className="absolute -bottom-[1px] -right-[1px] z-20 rounded-tl-[26px] bg-[var(--bg-canvas)] pl-3.5 pt-3 pr-1.5 pb-1">
+                <div className="absolute -bottom-[1px] -right-[1px] z-20 rounded-tl-[24px] bg-[var(--bg-canvas)] pl-3 pt-2.5 pr-1 pb-1 sm:rounded-tl-[26px] sm:pl-3.5 sm:pt-3 sm:pr-1.5">
                   <InvertedFillet
                     position="bottom-right"
                     size={20}
@@ -271,29 +271,29 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* PIECE 3: Bottom-Center White Card ("01 / Built for Mobile") with Smooth Concentric Ripple on Hover */}
-              <div className="om-floating-card om-mobile-card group absolute bottom-2 left-[84px] z-30 h-[172px] w-[172px] overflow-hidden rounded-[28px] p-5 transition-transform duration-300 hover:scale-[1.03] sm:left-[104px] sm:h-[180px] sm:w-[180px]">
+              {/* PIECE 3: Bottom-Center White Card ("01 / Built for Mobile") — Positioned at left-3 on mobile so it never overlaps "How it works" */}
+              <div className="om-floating-card om-mobile-card group absolute bottom-3 left-3 z-30 h-[152px] w-[152px] overflow-hidden rounded-[24px] p-4 transition-transform duration-300 hover:scale-[1.03] sm:bottom-2 sm:left-[96px] sm:h-[180px] sm:w-[180px] sm:rounded-[28px] sm:p-5">
                 <div className="relative z-10 flex h-full flex-col justify-between">
                   <div className="flex items-start justify-between">
                     <span className="text-[11px] font-medium text-[var(--text-muted)]">
                       01
                     </span>
                     {/* Solid Emerald Green Circle Icon + 3 Concentric Ripple Rings Centered Directly On It */}
-                    <div className="relative flex h-12 w-12 items-center justify-center">
+                    <div className="relative flex h-10 w-10 items-center justify-center sm:h-12 sm:w-12">
                       <span
                         aria-hidden="true"
-                        className="om-ripple-circle om-ripple-circle-1 h-16 w-16"
+                        className="om-ripple-circle om-ripple-circle-1 h-14 w-14 sm:h-16 sm:w-16"
                       />
                       <span
                         aria-hidden="true"
-                        className="om-ripple-circle om-ripple-circle-2 h-24 w-24"
+                        className="om-ripple-circle om-ripple-circle-2 h-20 w-20 sm:h-24 sm:w-24"
                       />
                       <span
                         aria-hidden="true"
-                        className="om-ripple-circle om-ripple-circle-3 h-32 w-32"
+                        className="om-ripple-circle om-ripple-circle-3 h-28 w-28 sm:h-32 sm:w-32"
                       />
-                      <span className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-[#00B64F] text-white shadow-md shadow-[#00B64F]/30 transition-transform duration-300 group-hover:scale-110">
-                        <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <span className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full bg-[#00B64F] text-white shadow-md shadow-[#00B64F]/30 transition-transform duration-300 group-hover:scale-110 sm:h-12 sm:w-12">
+                        <svg className="h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
                           <polyline points="9 12 11 14 15 10" />
                         </svg>
@@ -301,7 +301,7 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  <p className="text-[19px] font-medium leading-[1.18] tracking-tight text-[var(--text-primary)]">
+                  <p className="text-[16px] font-medium leading-[1.18] tracking-tight text-[var(--text-primary)] sm:text-[19px]">
                     Built for <br />
                     Mobile
                   </p>
@@ -311,7 +311,7 @@ export default function HomePage() {
               {/* 4 Delicate Radiating Blush Burst Lines outside Bottom-Left of White Card */}
               <svg
                 aria-hidden="true"
-                className="pointer-events-none absolute bottom-0 left-[64px] z-20 h-9 w-9 text-[#F2C6BC] dark:text-[#FF6B00]/40 sm:left-[84px]"
+                className="pointer-events-none absolute bottom-1 left-0 z-20 h-8 w-8 text-[#F2C6BC] dark:text-[#FF6B00]/40 sm:bottom-0 sm:left-[76px] sm:h-9 sm:w-9"
                 viewBox="0 0 36 36"
                 fill="none"
                 stroke="currentColor"
