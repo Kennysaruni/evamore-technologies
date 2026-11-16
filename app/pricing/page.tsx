@@ -86,36 +86,32 @@ export default function PricingPage() {
                 key={tier.name}
                 variant="zoom"
                 delay={idx * 120}
-                className={`group relative flex flex-col justify-between rounded-[28px] p-7 sm:p-8 transition-transform duration-300 hover:scale-[1.015] ${
-                  isHighlighted
-                    ? "bg-[#121214] text-white shadow-2xl"
-                    : "om-floating-card"
-                }`}
+                className={`group relative flex flex-col justify-between rounded-[28px] p-7 sm:p-8 transition-transform duration-300 hover:scale-[1.015] ${isHighlighted
+                  ? "bg-[#121214] text-white shadow-2xl"
+                  : "om-floating-card"
+                  }`}
               >
                 <div>
                   <div className="flex items-center justify-between gap-2">
                     <span
-                      className={`rounded-full px-4 py-1 text-xs font-medium ${
-                        isHighlighted
-                          ? "bg-[#00B64F] text-white"
-                          : "bg-[var(--bg-soft-btn)] text-[#FF6B00]"
-                      }`}
+                      className={`rounded-full px-4 py-1 text-xs font-medium ${isHighlighted
+                        ? "bg-[#00B64F] text-white"
+                        : "bg-[var(--bg-soft-btn)] text-[#FF6B00]"
+                        }`}
                     >
                       {tier.badge}
                     </span>
                     <span
-                      className={`text-xs ${
-                        isHighlighted ? "text-zinc-400" : "text-[var(--text-muted)]"
-                      }`}
+                      className={`text-xs ${isHighlighted ? "text-zinc-400" : "text-[var(--text-muted)]"
+                        }`}
                     >
                       {tier.currency}
                     </span>
                   </div>
 
                   <h2
-                    className={`mt-6 text-2xl font-medium ${
-                      isHighlighted ? "text-white" : "text-[var(--text-primary)]"
-                    }`}
+                    className={`mt-6 text-2xl font-medium ${isHighlighted ? "text-white" : "text-[var(--text-primary)]"
+                      }`}
                   >
                     {tier.name}
                   </h2>
@@ -123,40 +119,35 @@ export default function PricingPage() {
                   <div className="mt-3 flex items-baseline gap-1.5">
                     <span className="text-xs text-[#FF6B00]">from</span>
                     <span
-                      className={`text-4xl font-medium tracking-tight ${
-                        isHighlighted ? "text-white" : "text-[var(--text-primary)]"
-                      }`}
+                      className={`text-4xl font-medium tracking-tight ${isHighlighted ? "text-white" : "text-[var(--text-primary)]"
+                        }`}
                     >
                       {tier.price}
                     </span>
                     <span
-                      className={`text-xs ${
-                        isHighlighted ? "text-zinc-400" : "text-[var(--text-secondary)]"
-                      }`}
+                      className={`text-xs ${isHighlighted ? "text-zinc-400" : "text-[var(--text-secondary)]"
+                        }`}
                     >
                       {tier.currency} {tier.period}
                     </span>
                   </div>
 
                   <p
-                    className={`mt-3 text-[12.5px] leading-[1.6] ${
-                      isHighlighted ? "text-zinc-400" : "text-[var(--text-secondary)]"
-                    }`}
+                    className={`mt-3 text-[12.5px] leading-[1.6] ${isHighlighted ? "text-zinc-400" : "text-[var(--text-secondary)]"
+                      }`}
                   >
                     {tier.description}
                   </p>
 
                   <ul
-                    className={`mt-6 space-y-3 border-t pt-6 ${
-                      isHighlighted ? "border-white/10" : "border-[var(--divider-line)]"
-                    }`}
+                    className={`mt-6 space-y-3 border-t pt-6 ${isHighlighted ? "border-white/10" : "border-[var(--divider-line)]"
+                      }`}
                   >
                     {tier.features.map((feat) => (
                       <li
                         key={feat}
-                        className={`flex items-start gap-2.5 text-xs sm:text-[13px] ${
-                          isHighlighted ? "text-zinc-200" : "text-[var(--text-secondary)]"
-                        }`}
+                        className={`flex items-start gap-2.5 text-xs sm:text-[13px] ${isHighlighted ? "text-zinc-200" : "text-[var(--text-secondary)]"
+                          }`}
                       >
                         <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-[#00B64F]" />
                         <span>{feat}</span>
@@ -168,9 +159,8 @@ export default function PricingPage() {
                 <div className="mt-8">
                   <Link
                     href="/contact"
-                    className={`w-full ${
-                      isHighlighted ? "om-btn-primary" : "om-btn-soft"
-                    }`}
+                    className={`w-full ${isHighlighted ? "om-btn-primary" : "om-btn-soft"
+                      }`}
                   >
                     <span>{tier.cta}</span>
                     <CircledArrow className="h-4 w-4" />
