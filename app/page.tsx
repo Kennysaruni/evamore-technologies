@@ -23,12 +23,6 @@ const ARTICLE_IMAGES = [
   "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=85",
 ];
 
-const AVATAR_URLS = [
-  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
-  "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80",
-  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
-];
-
 function IndustryLogoMark({ index }: { index: number }) {
   const icons = [
     <svg key="0" className="h-6 w-6 text-[#FF6B00]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
@@ -172,12 +166,12 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* PIECE 2: Main Portrait Photo on Right with Seamless Bottom-Right Cutout */}
+              {/* PIECE 2: Happy Office Team Photo on Right with Seamless Bottom-Right Cutout */}
               <div className="group absolute right-0 top-14 z-10 h-[275px] w-[225px] sm:h-[305px] sm:w-[275px]">
                 <div className="h-full w-full overflow-hidden rounded-[26px] sm:rounded-[28px]">
                   <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=85"
-                    alt="Smiling business owner in studio"
+                    src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=85"
+                    alt="Happy team collaborating in a bright modern office"
                     className="om-lens-img h-full w-full object-cover"
                   />
                 </div>
@@ -573,27 +567,29 @@ export default function HomePage() {
         <div className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8">
           <ScrollReveal variant="zoom" className="mx-auto max-w-2xl text-center">
             <OmotiveEyebrow
-              first="Valuable"
-              second="Feedback"
+              first="Recent"
+              second="Work"
               icon="users"
               dark
               centered
             />
             <h2 className="om-h2 mt-5 text-[36px] text-white sm:text-[44px]">
-              Trusted By The World&apos;s Fastest <br />
-              Growing Companies
+              Real Results From <br />
+              Our Recent Work
             </h2>
           </ScrollReveal>
 
-          {/* Top Row: 3 Dark Company Cards with Unclipped Bottom-Right Cutouts */}
+          {/* Top Row: 3 Dark Company Cards with Real Client Logos & Portraits */}
           <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3">
             {/* Card 1: The Wealth Code Collective */}
             <ScrollReveal variant="zoom" delay={0} className="group relative h-[140px] rounded-[24px] bg-[#1B1B1F] p-6">
               <div className="flex items-start justify-between">
-                <div className="flex items-center gap-2.5">
-                  <svg className="h-6 w-6 text-[#FFE4DE]" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 3c-2.5 3.5-2.5 7.5 0 11 2.5-3.5 2.5-7.5 0-11zM5 10c1 4 4 6.5 7 7-3-1-5-3.5-7-7zm14 0c-2 3.5-4 6-7 7 3-.5 6-3 7-7z" />
-                  </svg>
+                <div className="flex items-center gap-3">
+                  <img
+                    src="https://thewealthcodecollective.com/images/lavie_portrait.jpg"
+                    alt="Lavie Pittmann"
+                    className="h-9 w-9 rounded-full object-cover border border-white/20"
+                  />
                   <span className="text-xl font-semibold tracking-tight text-[#FFE4DE]">
                     Wealth Code
                   </span>
@@ -626,10 +622,12 @@ export default function HomePage() {
             {/* Card 2: Glamour Home Care */}
             <ScrollReveal variant="zoom" delay={110} className="group relative h-[140px] rounded-[24px] bg-[#1B1B1F] p-6">
               <div className="flex items-start justify-between">
-                <div className="flex items-center gap-2.5">
-                  <svg className="h-6 w-6 text-[#FFE4DE]" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M4 10h3v10H4V10zm6-6h4v16h-4V4zm6 8h4v8h-4v-8z" />
-                  </svg>
+                <div className="flex items-center gap-3">
+                  <img
+                    src="https://www.glamourhomecare.org/Website-Icon.png"
+                    alt="Glamour Home Care logo"
+                    className="h-9 w-9 rounded-lg object-contain bg-white/95 p-1"
+                  />
                   <span className="text-xl font-semibold tracking-tight text-[#FFE4DE]">
                     Glamour Care
                   </span>
@@ -662,13 +660,12 @@ export default function HomePage() {
             {/* Card 3: NeuroSense Africa */}
             <ScrollReveal variant="zoom" delay={220} className="group relative h-[140px] rounded-[24px] bg-[#1B1B1F] p-6">
               <div className="flex items-start justify-between">
-                <div className="flex items-center gap-2.5">
-                  <svg className="h-6 w-6 text-[#FFE4DE]" viewBox="0 0 24 24" fill="currentColor">
-                    <circle cx="12" cy="6" r="2.5" />
-                    <circle cx="6" cy="17" r="2.5" />
-                    <circle cx="18" cy="17" r="2.5" />
-                    <path d="M12 8.5v4.5M12 13l-4.5 2.5M12 13l4.5 2.5" stroke="currentColor" strokeWidth="2" />
-                  </svg>
+                <div className="flex items-center gap-3">
+                  <img
+                    src="https://www.neurosenseafrica.com/assets/Neurosciencelogo-BWzIUrUQ.svg"
+                    alt="NeuroSense Africa logo"
+                    className="h-9 w-9 rounded-lg object-contain bg-white/95 p-1"
+                  />
                   <span className="text-xl font-semibold tracking-tight text-[#FFE4DE]">
                     NeuroSense
                   </span>
@@ -715,9 +712,11 @@ export default function HomePage() {
                 <div className="mt-8 flex items-center justify-between pt-2">
                   <div className="flex items-center gap-3">
                     <img
-                      src={AVATAR_URLS[idx % AVATAR_URLS.length]}
+                      src={item.avatarUrl}
                       alt={item.leader}
-                      className="h-9 w-9 rounded-full object-cover"
+                      className={`h-9 w-9 rounded-full object-cover ${
+                        idx > 0 ? "bg-white/95 p-1 object-contain" : ""
+                      }`}
                     />
                     <span className="text-[13.5px] font-medium text-white">
                       {item.leader}

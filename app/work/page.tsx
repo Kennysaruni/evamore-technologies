@@ -26,12 +26,6 @@ const PROJECT_PHOTOS: Record<string, string> = {
     "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1000&q=85",
 };
 
-const AVATAR_URLS = [
-  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
-  "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80",
-  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
-];
-
 export default function WorkPage() {
   return (
     <div className="overflow-hidden">
@@ -181,15 +175,15 @@ export default function WorkPage() {
         <div className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8">
           <ScrollReveal variant="zoom" className="mx-auto max-w-2xl text-center">
             <OmotiveEyebrow
-              first="Valuable"
-              second="Feedback"
+              first="Recent"
+              second="Work"
               icon="users"
               dark
               centered
             />
             <h2 className="om-h2 mt-5 text-[36px] text-white sm:text-[44px]">
-              Trusted By Fast-Growing <br />
-              Businesses &amp; Clinics
+              Real Results From <br />
+              Our Recent Work
             </h2>
           </ScrollReveal>
 
@@ -202,13 +196,26 @@ export default function WorkPage() {
                 className="group relative h-[140px] rounded-[24px] bg-[#1B1B1F] p-6"
               >
                 <div className="flex items-start justify-between">
-                  <span className="text-xl font-semibold tracking-tight text-[#FFE4DE]">
-                    {idx === 0
-                      ? "Wealth Code"
-                      : idx === 1
-                      ? "Glamour Care"
-                      : "NeuroSense"}
-                  </span>
+                  <div className="flex items-center gap-3">
+                    {item.logoUrl && (
+                      <img
+                        src={item.logoUrl}
+                        alt={item.company}
+                        className={`h-9 w-9 shrink-0 ${
+                          idx === 0
+                            ? "rounded-full object-cover border border-white/20"
+                            : "rounded-lg bg-white/95 p-1 object-contain"
+                        }`}
+                      />
+                    )}
+                    <span className="text-xl font-semibold tracking-tight text-[#FFE4DE]">
+                      {idx === 0
+                        ? "Wealth Code"
+                        : idx === 1
+                        ? "Glamour Care"
+                        : "NeuroSense"}
+                    </span>
+                  </div>
                   <span className="text-xs text-zinc-400">
                     {item.highlightMetric}
                   </span>
@@ -250,9 +257,11 @@ export default function WorkPage() {
                 <div className="mt-8 flex items-center justify-between pt-2">
                   <div className="flex items-center gap-3">
                     <img
-                      src={AVATAR_URLS[idx % AVATAR_URLS.length]}
+                      src={item.avatarUrl}
                       alt={item.leader}
-                      className="h-9 w-9 rounded-full object-cover"
+                      className={`h-9 w-9 rounded-full ${
+                        idx > 0 ? "bg-white/95 p-1 object-contain" : "object-cover"
+                      }`}
                     />
                     <span className="text-[13.5px] font-medium text-white">
                       {item.leader}

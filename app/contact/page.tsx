@@ -6,6 +6,7 @@ import {
   InvertedFillet,
   AnimatedUnderline,
 } from "@/components/HomeInteractive";
+import { CircledArrow } from "@/components/Navbar";
 import { ScrollReveal } from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
@@ -42,8 +43,21 @@ export default function ContactPage() {
 
             <p className="max-w-[380px] text-[13px] leading-[1.6] text-[var(--text-secondary)]">
               Send a few details and we&apos;ll reply within one business day
-              with a free mockup plan.
+              with a free mockup plan, or book a quick call directly on our
+              calendar.
             </p>
+
+            <div>
+              <a
+                href={SITE_CONFIG.bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="om-btn-primary"
+              >
+                <span>Book a Call on Google Calendar</span>
+                <CircledArrow className="h-4 w-4" />
+              </a>
+            </div>
 
             {/* Studio Photo Card with Bottom-Right Inverted-Corner Cutout */}
             <div className="group relative h-[225px] w-full">

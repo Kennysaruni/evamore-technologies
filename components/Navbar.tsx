@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Logo } from "./Logo";
 import { useTheme } from "./ThemeProvider";
+import { SITE_CONFIG } from "@/lib/site-data";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -150,13 +151,15 @@ export function Navbar() {
             )}
           </button>
 
-          <Link
-            href="/contact"
+          <a
+            href={SITE_CONFIG.bookingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden sm:inline-flex items-center gap-2.5 rounded-full bg-[var(--bg-soft-btn)] px-5 py-2.5 text-[13.5px] font-medium text-[var(--text-primary)] transition-colors hover:bg-[#FF6B00] hover:text-white"
           >
-            <span>Get a free mockup</span>
+            <span>Book a Call</span>
             <CircledArrow className="h-4 w-4" />
-          </Link>
+          </a>
 
           {/* Mobile Menu Toggle */}
           <button
@@ -203,14 +206,16 @@ export function Navbar() {
                 </Link>
               );
             })}
-            <Link
-              href="/contact"
+            <a
+              href={SITE_CONFIG.bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setMobileOpen(false)}
               className="om-btn-primary mt-2 w-full"
             >
-              <span>Get a free mockup</span>
+              <span>Book a Call</span>
               <CircledArrow className="h-4 w-4" />
-            </Link>
+            </a>
           </nav>
         </div>
       )}

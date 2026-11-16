@@ -23,6 +23,7 @@ export interface ClientProject {
   name: string;
   leader?: string;
   domain?: string;
+  logoUrl?: string;
   businessType: string;
   oneLineResult: string;
   problem: string;
@@ -41,6 +42,8 @@ export interface TestimonialItem {
   category: string;
   quote: string;
   highlightMetric: string;
+  avatarUrl: string;
+  logoUrl?: string;
 }
 
 export interface ClientQuestionItem {
@@ -70,7 +73,7 @@ export const SITE_CONFIG = {
     "Websites and quote follow-up for home-service businesses and clinics in the Greater Toronto Area.",
   email: "kenny@evamoretechnologies.com",
   phone: "+254 703 546 026",
-  mailingAddress: "70512-00200, Nairobi, Kenya",
+  bookingUrl: "https://calendar.app.google/EJ7qkMBJ6T8XGxJB6",
   hours: "Mon–Fri, 9:00 AM – 5:00 PM EST (Toronto Time)",
   copyright:
     "© 2026 Evamore Technologies. Working remotely from Kenya with clients in Canada.",
@@ -168,7 +171,7 @@ export const PROCESS_STEPS: ProcessStep[] = [
     title: "We build a better one.",
     description:
       "You approve a mockup before we write a line of final code.",
-    caption: "Planning your site with the owner",
+    caption: "Step 2 · Planning your site with the owner",
     tag: "Free Mockup First",
     highlights: [
       "Custom mockup delivered within 3 business days",
@@ -197,6 +200,7 @@ export const CLIENT_PROJECTS: ClientProject[] = [
     name: "Glamour Home Care",
     leader: "Shavonnah",
     domain: "glamourhomecare.org",
+    logoUrl: "https://www.glamourhomecare.org/Website-Icon.png",
     businessType: "Home Care & Patient Support Services",
     oneLineResult:
       "Clear care-service pages and streamlined family inquiry flow built for mobile trust.",
@@ -217,6 +221,7 @@ export const CLIENT_PROJECTS: ClientProject[] = [
     name: "The Wealth Code Collective",
     leader: "Lavie Pittmann",
     domain: "The Wealth Code Collective",
+    logoUrl: "https://thewealthcodecollective.com/images/lavie_portrait.jpg",
     businessType: "Financial Advisory & Consulting Collective",
     oneLineResult:
       "High-trust digital presence and structured client onboarding funnel for Lavie Pittmann.",
@@ -236,6 +241,7 @@ export const CLIENT_PROJECTS: ClientProject[] = [
     slug: "neurosense-africa",
     name: "NeuroSense Africa",
     domain: "neurosenseafrica.com",
+    logoUrl: "https://www.neurosenseafrica.com/assets/Neurosciencelogo-BWzIUrUQ.svg",
     businessType: "Neuro-Health & Clinical Technology Platform",
     oneLineResult:
       "Clinical-grade clarity, fast load performance, and accessible patient/partner inquiry pathways.",
@@ -282,6 +288,8 @@ export const TESTIMONIALS: TestimonialItem[] = [
     quote:
       "Evamore took our vision and turned it into a fast, clean website that explains what we do in seconds. Clients can reach out without friction, and the process was straightforward from mockup to launch.",
     highlightMetric: "Clear Value & Fast Launch",
+    avatarUrl: "https://thewealthcodecollective.com/images/lavie_portrait.jpg",
+    logoUrl: "https://thewealthcodecollective.com/images/lavie_portrait.jpg",
   },
   {
     company: "Glamour Home Care",
@@ -292,6 +300,8 @@ export const TESTIMONIALS: TestimonialItem[] = [
     quote:
       "Families looking for home care need to trust us right away from their phones. Kenny made the entire process plain, delivered our mockup first, and built a site at glamourhomecare.org that makes inquiries simple.",
     highlightMetric: "Built for Mobile Families",
+    avatarUrl: "https://www.glamourhomecare.org/Website-Icon.png",
+    logoUrl: "https://www.glamourhomecare.org/Website-Icon.png",
   },
   {
     company: "NeuroSense Africa",
@@ -302,6 +312,8 @@ export const TESTIMONIALS: TestimonialItem[] = [
     quote:
       "We needed a site that looked credible, loaded quickly on every device, and made it easy for partners and patients to connect with us. Evamore delivered exactly what was promised with zero buzzwords.",
     highlightMetric: "Fast Clinical Credibility",
+    avatarUrl: "https://www.neurosenseafrica.com/assets/Neurosciencelogo-BWzIUrUQ.svg",
+    logoUrl: "https://www.neurosenseafrica.com/assets/Neurosciencelogo-BWzIUrUQ.svg",
   },
 ];
 

@@ -34,15 +34,20 @@ export function Footer() {
                 </p>
 
                 <div className="mt-5 flex flex-wrap items-center gap-3">
-                  <Link href="/contact" className="om-btn-primary">
-                    <span>Get a free mockup</span>
+                  <a
+                    href={SITE_CONFIG.bookingUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="om-btn-primary"
+                  >
+                    <span>Book a Call</span>
                     <CircledArrow className="h-4 w-4" />
-                  </Link>
+                  </a>
                   <Link
-                    href="/pricing"
+                    href="/contact"
                     className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-3 text-xs font-medium text-zinc-200 transition-colors hover:border-[#FF6B00] hover:text-white"
                   >
-                    <span>Pricing from $1,500 CAD</span>
+                    <span>Get a free mockup</span>
                   </Link>
                 </div>
               </div>

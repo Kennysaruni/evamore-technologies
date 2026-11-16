@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import {
@@ -114,15 +114,13 @@ export function AnimatedUnderline({
   className?: string;
 }) {
   const ref = useRef<SVGSVGElement | null>(null);
-  const [inView, setInView] = useState(false);
+  const [inView, setInView] = useState(
+    () => typeof window !== "undefined" && typeof IntersectionObserver === "undefined"
+  );
 
   useEffect(() => {
     const node = ref.current;
-    if (!node) return;
-    if (typeof IntersectionObserver === "undefined") {
-      setInView(true);
-      return;
-    }
+    if (!node || typeof IntersectionObserver === "undefined") return;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -237,13 +235,15 @@ const PROCESS_PHOTOS = [
  * Portals the modal directly to document.body at z-[9999] so it is never trapped
  * inside the Hero portrait's z-10 stacking context below the 99% and Built for Mobile cards.
  */
+const emptySubscribe = () => () => {};
+
 export function HeroWalkthroughTrigger() {
   const [open, setOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
 
   useEffect(() => {
     if (!open) return;
@@ -471,7 +471,7 @@ export function ServicesAccordionSection() {
  * 1:1 Match to Close-Up #2 with Smooth Morphing Carousel Transition
  */
 export function ProcessShowcaseSection() {
-  const [centerIndex, setCenterIndex] = useState<number>(1);
+  const [centerIndex, setCenterIndex] = useState<number>(0);
 
   const leftIndex = (centerIndex + PROCESS_STEPS.length - 1) % PROCESS_STEPS.length;
   const rightIndex = (centerIndex + 1) % PROCESS_STEPS.length;
@@ -539,9 +539,27 @@ export function ProcessShowcaseSection() {
                   className={`absolute inset-0 transition-opacity duration-500 ${
                     isCenter
                       ? "bg-gradient-to-t from-black/80 via-black/15 to-transparent"
-                      : "bg-black/20 group-hover:bg-black/5"
+                      : "bg-black/30 group-hover:bg-black/15"
                   }`}
                 />
+
+                {/* Top-Left Step Label on Every Slide */}
+                <div className="absolute left-4 top-4 z-10 flex items-center gap-2">
+                  <span
+                    className={`rounded-full px-3 py-1 text-[11px] font-semibold tracking-wide ${
+                      isCenter
+                        ? "bg-[#FF6B00] text-white shadow-md"
+                        : "bg-black/60 text-white backdrop-blur-sm"
+                    }`}
+                  >
+                    Step {step.step}
+                  </span>
+                  {isCenter && (
+                    <span className="rounded-full bg-black/55 px-3 py-1 text-[11px] font-medium text-zinc-200 backdrop-blur-sm">
+                      {step.tag}
+                    </span>
+                  )}
+                </div>
 
                 <div
                   className={`absolute bottom-5 left-6 z-10 max-w-[44%] transition-opacity duration-500 ${
@@ -620,6 +638,14 @@ export function ProcessShowcaseSection() {
             className="h-full w-full object-cover ev-fade"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
+          <div className="absolute left-4 top-4 z-10 flex items-center gap-2">
+            <span className="rounded-full bg-[#FF6B00] px-3 py-1 text-[11px] font-semibold text-white shadow-md">
+              Step {centerStep.step}
+            </span>
+            <span className="rounded-full bg-black/55 px-3 py-1 text-[11px] font-medium text-zinc-200 backdrop-blur-sm">
+              {centerStep.tag}
+            </span>
+          </div>
           <div className="absolute bottom-5 left-5 z-10 max-w-[44%]">
             <p className="text-base font-medium tracking-tight text-white">
               {centerStep.caption}
