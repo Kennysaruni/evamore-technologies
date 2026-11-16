@@ -8,6 +8,7 @@ import {
   AnimatedUnderline,
 } from "@/components/HomeInteractive";
 import { CircledArrow } from "@/components/Navbar";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Website Pricing for Local Businesses",
@@ -53,7 +54,7 @@ export default function PricingPage() {
         />
 
         <div className="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-end">
-          <div>
+          <ScrollReveal variant="left">
             <OmotiveEyebrow
               first="Transparent"
               second="CAD Pricing"
@@ -66,21 +67,25 @@ export default function PricingPage() {
                 <AnimatedUnderline />
               </span>
             </h1>
-          </div>
+          </ScrollReveal>
 
-          <p className="max-w-[340px] text-[13px] leading-[1.6] text-[var(--text-secondary)]">
-            Prices depend on pages and features. Your free mockup comes first so
-            you see the plan before paying a cent.
-          </p>
+          <ScrollReveal variant="right" delay={120}>
+            <p className="max-w-[340px] text-[13px] leading-[1.6] text-[var(--text-secondary)]">
+              Prices depend on pages and features. Your free mockup comes first so
+              you see the plan before paying a cent.
+            </p>
+          </ScrollReveal>
         </div>
 
         {/* 3 Pricing Cards */}
         <div className="mt-14 grid grid-cols-1 gap-7 lg:grid-cols-3 items-stretch">
-          {PRICING_TIERS.map((tier) => {
+          {PRICING_TIERS.map((tier, idx) => {
             const isHighlighted = tier.highlighted;
             return (
-              <div
+              <ScrollReveal
                 key={tier.name}
+                variant="zoom"
+                delay={idx * 120}
                 className={`group relative flex flex-col justify-between rounded-[28px] p-7 sm:p-8 transition-transform duration-300 hover:scale-[1.015] ${
                   isHighlighted
                     ? "bg-[#121214] text-white shadow-2xl"
@@ -171,41 +176,47 @@ export default function PricingPage() {
                     <CircledArrow className="h-4 w-4" />
                   </Link>
                 </div>
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>
       </section>
 
-      {/* 2. HOW PAYMENT WORKS (Warm Peach Section + Cutout Photo Cards) */}
+      {/* 2. HOW PAYMENT WORKS */}
       <section className="bg-[var(--bg-peach)] py-20 sm:py-24">
         <div className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8">
           <div className="mb-12 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
-            <div>
+            <ScrollReveal variant="left">
               <OmotiveEyebrow first="50 / 50" second="Payment Schedule" icon="key" />
               <h2 className="om-h2 mt-5 text-[36px] text-[var(--text-primary)] sm:text-[44px]">
                 How Payment Works.
               </h2>
-            </div>
-            <p className="max-w-[330px] text-[12.5px] leading-[1.6] text-[var(--text-secondary)]">
-              50% to start, 50% before launch. Accepted via Interac e-Transfer,
-              credit card, or wire transfer.
-            </p>
+            </ScrollReveal>
+            <ScrollReveal variant="right" delay={120}>
+              <p className="max-w-[330px] text-[12.5px] leading-[1.6] text-[var(--text-secondary)]">
+                50% to start, 50% before launch. Accepted via Interac e-Transfer,
+                credit card, or wire transfer.
+              </p>
+            </ScrollReveal>
           </div>
 
           <div className="grid grid-cols-1 gap-7 md:grid-cols-3">
-            {PAYMENT_STEPS.map((item) => (
-              <div key={item.step} className="group space-y-4">
+            {PAYMENT_STEPS.map((item, idx) => (
+              <ScrollReveal
+                key={item.step}
+                variant="zoom"
+                delay={idx * 120}
+                className="group space-y-4"
+              >
                 <div className="relative h-[220px] w-full">
                   <div className="h-full w-full overflow-hidden rounded-[24px]">
                     <img
                       src={item.photo}
                       alt={item.title}
-                      className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                      className="om-lens-img h-full w-full object-cover"
                     />
                   </div>
 
-                  {/* Seamless Bottom-Right Cutout Pill */}
                   <div className="absolute -bottom-[1px] -right-[1px] z-10 rounded-tl-[18px] bg-[var(--bg-peach)] pl-3 pt-2 pb-0.5 pr-0.5">
                     <InvertedFillet
                       fillClass="text-[var(--bg-peach)]"
@@ -231,7 +242,7 @@ export default function PricingPage() {
                 <p className="text-[12.5px] leading-[1.6] text-[var(--text-secondary)]">
                   {item.body}
                 </p>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -239,12 +250,12 @@ export default function PricingPage() {
 
       {/* 3. FAQ SECTION */}
       <section className="mx-auto max-w-[1180px] px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mb-8 max-w-xl">
+        <ScrollReveal variant="left" className="mb-8 max-w-xl">
           <OmotiveEyebrow first="Pricing" second="Questions" icon="users" />
           <h2 className="om-h2 mt-4 text-[32px] text-[var(--text-primary)] sm:text-[40px]">
             Questions Business Owners Ask
           </h2>
-        </div>
+        </ScrollReveal>
         <ClientQuestionsAndFaqSection />
       </section>
     </div>

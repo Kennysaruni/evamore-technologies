@@ -7,6 +7,7 @@ import {
   AnimatedUnderline,
 } from "@/components/HomeInteractive";
 import { CircledArrow } from "@/components/Navbar";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "About Evamore Technologies",
@@ -49,9 +50,8 @@ export default function AboutPage() {
          ===================================================================== */}
       <section className="bg-[var(--bg-peach)] pb-20 pt-10 sm:pt-14">
         <div className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8">
-          {/* Top Header Row: Title Left, Story + Pill Button Right */}
           <div className="grid grid-cols-1 items-end gap-8 lg:grid-cols-12">
-            <div className="lg:col-span-7">
+            <ScrollReveal variant="left" className="lg:col-span-7">
               <OmotiveEyebrow
                 first="Who We Are"
                 second="Direct Web Studio"
@@ -65,9 +65,9 @@ export default function AboutPage() {
                   <AnimatedUnderline />
                 </span>
               </h1>
-            </div>
+            </ScrollReveal>
 
-            <div className="lg:col-span-5 lg:pl-6">
+            <ScrollReveal variant="right" delay={120} className="lg:col-span-5 lg:pl-6">
               <p className="text-[13.5px] leading-[1.65] text-[var(--text-secondary)]">
                 Evamore Technologies is a small web studio led by Kenny, a
                 full-stack developer. We work remotely from Kenya with business
@@ -86,18 +86,17 @@ export default function AboutPage() {
                   <CircledArrow className="h-4 w-4" />
                 </Link>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
 
           {/* Wide Asymmetric 3-Card Bento Photo Stage with Cutout Notches */}
           <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-12 items-stretch">
-            {/* Left Wide Studio Photo (7 cols) with Bottom-Right Peach Cutout */}
-            <div className="group relative h-[310px] sm:h-[350px] lg:col-span-7">
+            <ScrollReveal variant="left" delay={140} className="group relative h-[310px] sm:h-[350px] lg:col-span-7">
               <div className="h-full w-full overflow-hidden rounded-[28px]">
                 <img
                   src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1100&q=85"
                   alt="Remote collaboration with Canadian business owners"
-                  className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                  className="om-lens-img h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent rounded-[28px]" />
                 <div className="absolute bottom-5 left-6 z-10 max-w-[48%]">
@@ -107,7 +106,6 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Seamless Bottom-Right Peach Cutout Notch */}
               <div className="absolute -bottom-[2px] -right-[2px] z-20 w-[48%] rounded-tl-[24px] bg-[var(--bg-peach)] pl-5 pt-3.5 pb-1.5 pr-2">
                 <InvertedFillet
                   fillClass="text-[var(--bg-peach)]"
@@ -125,11 +123,9 @@ export default function AboutPage() {
                   If something breaks, you reach the exact person who built your site.
                 </p>
               </div>
-            </div>
+            </ScrollReveal>
 
-            {/* Right Column (5 cols): Top Solid Green Stat Card + Bottom Workstation Cutout Photo */}
-            <div className="lg:col-span-5 flex flex-col justify-between gap-6">
-              {/* Top Row: Solid Emerald Green Card + Dark Card */}
+            <ScrollReveal variant="right" delay={240} className="lg:col-span-5 flex flex-col justify-between gap-6">
               <div className="grid grid-cols-2 gap-5">
                 <div className="flex flex-col justify-between rounded-[26px] bg-[#00B64F] p-6 text-white shadow-lg shadow-[#00B64F]/25 transition-transform duration-300 hover:scale-[1.02]">
                   <span className="text-xs font-medium text-white/85">
@@ -160,13 +156,12 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Bottom Workstation Photo with Bottom-Right Cutout Pill */}
               <div className="group relative h-[180px] w-full">
                 <div className="h-full w-full overflow-hidden rounded-[26px]">
                   <img
                     src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=85"
                     alt="Kenny's full-stack development desk"
-                    className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                    className="om-lens-img h-full w-full object-cover"
                   />
                 </div>
                 <div className="absolute -bottom-[1px] -right-[1px] z-10 rounded-tl-[18px] bg-[var(--bg-peach)] pl-3 pt-2 pb-0.5 pr-0.5">
@@ -187,38 +182,45 @@ export default function AboutPage() {
                   </span>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
       {/* =====================================================================
-          2. THREE RULES WE BUILD BY (White Canvas + Distinct Unsplash Photos)
+          2. THREE RULES WE BUILD BY
          ===================================================================== */}
       <section className="mx-auto max-w-[1180px] px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
         <div className="mb-12 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
-          <div>
+          <ScrollReveal variant="left">
             <OmotiveEyebrow first="Core" second="Values" icon="briefcase" />
             <h2 className="om-h2 mt-5 text-[36px] text-[var(--text-primary)] sm:text-[44px]">
               Three Rules We <br />
               Build By.
             </h2>
-          </div>
-          <p className="max-w-[330px] text-[12.5px] leading-[1.6] text-[var(--text-secondary)]">
-            You see a mockup before you pay the second half. We measure results
-            in leads and booked jobs, not buzzwords.
-          </p>
+          </ScrollReveal>
+          <ScrollReveal variant="right" delay={120}>
+            <p className="max-w-[330px] text-[12.5px] leading-[1.6] text-[var(--text-secondary)]">
+              You see a mockup before you pay the second half. We measure results
+              in leads and booked jobs, not buzzwords.
+            </p>
+          </ScrollReveal>
         </div>
 
         <div className="grid grid-cols-1 gap-7 md:grid-cols-3">
-          {VALUES.map((val) => (
-            <div key={val.title} className="group space-y-4">
+          {VALUES.map((val, idx) => (
+            <ScrollReveal
+              key={val.title}
+              variant="zoom"
+              delay={idx * 120}
+              className="group space-y-4"
+            >
               <div className="relative h-[225px] w-full">
                 <div className="h-full w-full overflow-hidden rounded-[24px]">
                   <img
                     src={val.photo}
                     alt={val.title}
-                    className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                    className="om-lens-img h-full w-full object-cover"
                   />
                 </div>
 
@@ -245,7 +247,7 @@ export default function AboutPage() {
               <p className="text-[12.5px] leading-[1.6] text-[var(--text-secondary)]">
                 {val.body}
               </p>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </section>
@@ -255,7 +257,7 @@ export default function AboutPage() {
          ===================================================================== */}
       <section className="bg-[#121214] py-20 text-white sm:py-24">
         <div className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
+          <ScrollReveal variant="zoom" className="mx-auto max-w-2xl text-center">
             <OmotiveEyebrow
               first="Direct"
               second="Accountability"
@@ -267,7 +269,7 @@ export default function AboutPage() {
               How We Work With <br />
               Canadian Owners
             </h2>
-          </div>
+          </ScrollReveal>
 
           <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3">
             {[
@@ -289,8 +291,13 @@ export default function AboutPage() {
                 pill: "EST Hours",
                 body: "All calls, updates, and same-day support happen on standard Greater Toronto Area business hours.",
               },
-            ].map((card) => (
-              <div key={card.title} className="space-y-4">
+            ].map((card, idx) => (
+              <ScrollReveal
+                key={card.title}
+                variant="zoom"
+                delay={idx * 120}
+                className="space-y-4"
+              >
                 <div className="group relative h-[135px] rounded-[24px] bg-[#1B1B1F] p-6">
                   <div className="flex items-start justify-between">
                     <span className="text-lg font-semibold text-[#FFE4DE]">
@@ -325,7 +332,7 @@ export default function AboutPage() {
                     {card.body}
                   </p>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -335,12 +342,12 @@ export default function AboutPage() {
           4. PROCESS CAROUSEL
          ===================================================================== */}
       <section className="bg-[var(--bg-peach)] py-20 sm:py-24">
-        <div className="mx-auto max-w-[1180px] px-4 pb-10 sm:px-6 lg:px-8">
+        <ScrollReveal variant="left" className="mx-auto max-w-[1180px] px-4 pb-10 sm:px-6 lg:px-8">
           <OmotiveEyebrow first="Simple" second="process" icon="key" />
           <h2 className="om-h2 mt-5 text-[36px] text-[var(--text-primary)] sm:text-[44px]">
             Understand The Business Process.
           </h2>
-        </div>
+        </ScrollReveal>
         <div className="px-2 sm:px-4">
           <ProcessShowcaseSection />
         </div>

@@ -6,6 +6,7 @@ import {
   InvertedFillet,
   AnimatedUnderline,
 } from "@/components/HomeInteractive";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Get a Free Website Mockup",
@@ -24,7 +25,7 @@ export default function ContactPage() {
 
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 items-start">
           {/* Left Column: Heading + Studio Cutout Photo Card + Direct Details */}
-          <div className="lg:col-span-5 space-y-6">
+          <ScrollReveal variant="left" className="lg:col-span-5 space-y-6">
             <OmotiveEyebrow
               first="Free Mockup"
               second="1-Day Reply"
@@ -50,7 +51,7 @@ export default function ContactPage() {
                 <img
                   src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=900&q=85"
                   alt="Planning your free website mockup"
-                  className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                  className="om-lens-img h-full w-full object-cover"
                 />
               </div>
 
@@ -98,12 +99,12 @@ export default function ContactPage() {
                 </span>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Right Column: Form inside Soft Peach Container */}
-          <div className="lg:col-span-7 rounded-[34px] bg-[var(--bg-peach)] p-4 sm:p-7">
+          <ScrollReveal variant="right" delay={140} className="lg:col-span-7 rounded-[34px] bg-[var(--bg-peach)] p-4 sm:p-7">
             <ContactForm />
-          </div>
+          </ScrollReveal>
         </div>
       </section>
     </div>

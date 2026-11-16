@@ -7,6 +7,7 @@ import {
   AnimatedUnderline,
 } from "@/components/HomeInteractive";
 import { CircledArrow } from "@/components/Navbar";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Recent Website Builds and Case Studies",
@@ -42,7 +43,7 @@ export default function WorkPage() {
         />
 
         <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-end">
-          <div>
+          <ScrollReveal variant="left">
             <OmotiveEyebrow
               first="Selected"
               second="Case Studies"
@@ -55,9 +56,9 @@ export default function WorkPage() {
                 <AnimatedUnderline />
               </span>
             </h1>
-          </div>
+          </ScrollReveal>
 
-          <div className="max-w-[340px]">
+          <ScrollReveal variant="right" delay={120} className="max-w-[340px]">
             <p className="text-[13px] leading-[1.6] text-[var(--text-secondary)]">
               Every build focuses on fast mobile load times, plain service
               pages, and frictionless inquiry capture.
@@ -68,11 +69,11 @@ export default function WorkPage() {
                 <CircledArrow className="h-4 w-4" />
               </Link>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* 2. CASE STUDIES SHOWCASE (Warm Peach Section with Cutout Photo Cards) */}
+      {/* 2. CASE STUDIES SHOWCASE */}
       <section className="bg-[var(--bg-peach)] py-20 sm:py-24">
         <div className="mx-auto max-w-[1180px] px-4 space-y-12 sm:px-6 lg:px-8">
           {CLIENT_PROJECTS.map((project, idx) => {
@@ -82,102 +83,103 @@ export default function WorkPage() {
             const isEven = idx % 2 === 0;
 
             return (
-              <article
+              <ScrollReveal
                 key={project.slug}
-                id={project.slug}
-                className="om-floating-card group rounded-[30px] p-6 sm:p-10"
+                variant={isEven ? "left" : "right"}
               >
-                <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
-                  {/* Photo Column with Bottom-Right Inverted-Corner Cutout */}
-                  <div
-                    className={`lg:col-span-6 ${
-                      isEven ? "lg:order-1" : "lg:order-2"
-                    }`}
-                  >
-                    <div className="relative h-[280px] sm:h-[325px] w-full">
-                      <div className="h-full w-full overflow-hidden rounded-[24px]">
-                        <img
-                          src={photoUrl}
-                          alt={`${project.name} desktop and mobile website showcase`}
-                          className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                        />
-                      </div>
+                <article
+                  id={project.slug}
+                  className="om-floating-card group rounded-[30px] p-6 sm:p-10"
+                >
+                  <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
+                    <div
+                      className={`lg:col-span-6 ${
+                        isEven ? "lg:order-1" : "lg:order-2"
+                      }`}
+                    >
+                      <div className="relative h-[280px] sm:h-[325px] w-full">
+                        <div className="h-full w-full overflow-hidden rounded-[24px]">
+                          <img
+                            src={photoUrl}
+                            alt={`${project.name} desktop and mobile website showcase`}
+                            className="om-lens-img h-full w-full object-cover"
+                          />
+                        </div>
 
-                      {/* Seamless Bottom-Right Cutout Pill */}
-                      <div className="absolute -bottom-[1px] -right-[1px] z-10 rounded-tl-[20px] bg-[var(--glass-surface)] pl-3.5 pt-2.5 pb-0.5 pr-0.5">
-                        <InvertedFillet
-                          position="bottom-right"
-                          size={18}
-                          className="absolute bottom-0 -left-[17px]"
-                        />
-                        <InvertedFillet
-                          position="bottom-right"
-                          size={18}
-                          className="absolute -top-[17px] right-0"
-                        />
-                        <span className="inline-block rounded-full border border-[var(--divider-line)] bg-[var(--bg-canvas)] px-4 py-1.5 text-xs font-medium text-[var(--text-primary)]">
-                          {project.domain}
+                        <div className="absolute -bottom-[1px] -right-[1px] z-10 rounded-tl-[20px] bg-[var(--glass-surface)] pl-3.5 pt-2.5 pb-0.5 pr-0.5">
+                          <InvertedFillet
+                            position="bottom-right"
+                            size={18}
+                            className="absolute bottom-0 -left-[17px]"
+                          />
+                          <InvertedFillet
+                            position="bottom-right"
+                            size={18}
+                            className="absolute -top-[17px] right-0"
+                          />
+                          <span className="inline-block rounded-full border border-[var(--divider-line)] bg-[var(--bg-canvas)] px-4 py-1.5 text-xs font-medium text-[var(--text-primary)]">
+                            {project.domain}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      className={`lg:col-span-6 space-y-5 ${
+                        isEven ? "lg:order-2 lg:pl-4" : "lg:order-1 lg:pr-4"
+                      }`}
+                    >
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="rounded-full bg-[#00B64F] px-3.5 py-1 text-xs font-medium text-white">
+                          {project.resultMetric}
+                        </span>
+                        <span className="text-xs text-[var(--text-muted)]">
+                          {project.businessType}
                         </span>
                       </div>
+
+                      <h2 className="om-h2 text-2xl text-[var(--text-primary)] sm:text-3xl">
+                        {project.name}
+                      </h2>
+
+                      <p className="text-[13px] leading-[1.6] text-[var(--text-secondary)]">
+                        <strong className="font-medium text-[var(--text-primary)]">
+                          The problem:{" "}
+                        </strong>
+                        {project.problem}
+                      </p>
+
+                      <ul className="space-y-2 border-t border-[var(--divider-line)] pt-4">
+                        {project.whatWeDid.map((bullet) => (
+                          <li
+                            key={bullet}
+                            className="flex items-start gap-2.5 text-xs sm:text-[13px] text-[var(--text-secondary)]"
+                          >
+                            <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#FF6B00]" />
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div className="pt-2">
+                        <Link href="/contact" className="om-btn-primary">
+                          <span>Request a similar build</span>
+                          <CircledArrow className="h-4 w-4" />
+                        </Link>
+                      </div>
                     </div>
                   </div>
-
-                  {/* Case Study Details Column */}
-                  <div
-                    className={`lg:col-span-6 space-y-5 ${
-                      isEven ? "lg:order-2 lg:pl-4" : "lg:order-1 lg:pr-4"
-                    }`}
-                  >
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className="rounded-full bg-[#00B64F] px-3.5 py-1 text-xs font-medium text-white">
-                        {project.resultMetric}
-                      </span>
-                      <span className="text-xs text-[var(--text-muted)]">
-                        {project.businessType}
-                      </span>
-                    </div>
-
-                    <h2 className="om-h2 text-2xl text-[var(--text-primary)] sm:text-3xl">
-                      {project.name}
-                    </h2>
-
-                    <p className="text-[13px] leading-[1.6] text-[var(--text-secondary)]">
-                      <strong className="font-medium text-[var(--text-primary)]">
-                        The problem:{" "}
-                      </strong>
-                      {project.problem}
-                    </p>
-
-                    <ul className="space-y-2 border-t border-[var(--divider-line)] pt-4">
-                      {project.whatWeDid.map((bullet) => (
-                        <li
-                          key={bullet}
-                          className="flex items-start gap-2.5 text-xs sm:text-[13px] text-[var(--text-secondary)]"
-                        >
-                          <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#FF6B00]" />
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className="pt-2">
-                      <Link href="/contact" className="om-btn-primary">
-                        <span>Request a similar build</span>
-                        <CircledArrow className="h-4 w-4" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </article>
+                </article>
+              </ScrollReveal>
             );
           })}
         </div>
       </section>
 
-      {/* 3. TESTIMONIALS DARK SECTION (Exact 1:1 Omotive Cutout Cards) */}
+      {/* 3. TESTIMONIALS DARK SECTION */}
       <section className="bg-[#121214] py-20 text-white sm:py-24">
         <div className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
+          <ScrollReveal variant="zoom" className="mx-auto max-w-2xl text-center">
             <OmotiveEyebrow
               first="Valuable"
               second="Feedback"
@@ -189,12 +191,14 @@ export default function WorkPage() {
               Trusted By Fast-Growing <br />
               Businesses &amp; Clinics
             </h2>
-          </div>
+          </ScrollReveal>
 
           <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3">
             {TESTIMONIALS.map((item, idx) => (
-              <div
+              <ScrollReveal
                 key={item.company}
+                variant="zoom"
+                delay={idx * 110}
                 className="group relative h-[140px] rounded-[24px] bg-[#1B1B1F] p-6"
               >
                 <div className="flex items-start justify-between">
@@ -227,14 +231,16 @@ export default function WorkPage() {
                     {idx === 0 ? "Lavie Pittmann" : item.domain}
                   </span>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
 
           <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-3">
             {TESTIMONIALS.map((item, idx) => (
-              <div
+              <ScrollReveal
                 key={item.leader}
+                variant="zoom"
+                delay={idx * 120 + 80}
                 className="flex flex-col justify-between rounded-[24px] border border-white/15 bg-[#151518] p-7 transition-colors duration-200 hover:border-[#FF6B00]/50"
               >
                 <p className="text-[13.5px] leading-[1.6] text-zinc-300">
@@ -264,7 +270,7 @@ export default function WorkPage() {
                     </span>
                   </div>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>

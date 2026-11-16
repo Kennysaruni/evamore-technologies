@@ -10,6 +10,7 @@ import {
   AnimatedUnderline,
 } from "@/components/HomeInteractive";
 import { CircledArrow } from "@/components/Navbar";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Web Design and Local SEO for Home Services",
@@ -17,7 +18,6 @@ export const metadata: Metadata = {
     "Websites, local SEO and quote follow-up for roofers, HVAC, plumbers and clinics in the GTA.",
 };
 
-// 100% Distinct Unsplash Photos for Services Page
 const SERVICE_DEEP_DIVE_PHOTOS = [
   "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=85",
   "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=900&q=85",
@@ -32,15 +32,13 @@ export default function ServicesPage() {
           1. BRIGHT OMOTIVE SERVICES HERO (Clean Light Canvas + 4 Visual Cutout Pillar Cards)
          ===================================================================== */}
       <section className="relative mx-auto max-w-[1180px] px-4 pb-20 pt-8 sm:px-6 sm:pt-12 lg:px-8">
-        {/* Soft Warm Blush Ambient Glow */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -left-24 -top-16 -z-10 h-96 w-96 rounded-full bg-[#FFE4DE]/60 blur-3xl dark:bg-[#FF6B00]/10"
         />
 
-        {/* Top 2-Column Editorial Header */}
         <div className="grid grid-cols-1 items-end gap-8 lg:grid-cols-12">
-          <div className="lg:col-span-7">
+          <ScrollReveal variant="left" className="lg:col-span-7">
             <OmotiveEyebrow
               first="Four Core Systems"
               second="Fewer Lost Customers"
@@ -56,9 +54,9 @@ export default function ServicesPage() {
               <br />
               And A System That Answers.
             </h1>
-          </div>
+          </ScrollReveal>
 
-          <div className="lg:col-span-5 lg:pl-6">
+          <ScrollReveal variant="right" delay={120} className="lg:col-span-5 lg:pl-6">
             <p className="text-[13.5px] leading-[1.65] text-[var(--text-secondary)]">
               Most local businesses don&apos;t need a bigger website. They need
               customers to find them, trust them and reach them quickly.
@@ -74,60 +72,64 @@ export default function ServicesPage() {
                 <CircledArrow className="h-4 w-4" />
               </Link>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
 
         {/* 4 Visual Photo-Cutout Service Pillar Cards */}
         <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {SERVICES.map((service, idx) => (
-            <a
+            <ScrollReveal
               key={service.id}
-              href={`#${service.id}`}
-              className="group block rounded-[26px] bg-[var(--bg-peach)] p-4 transition-transform duration-300 hover:scale-[1.02]"
+              variant="zoom"
+              delay={idx * 100}
             >
-              {/* Photo with Seamless Bottom-Right Peach Cutout */}
-              <div className="relative h-[155px] w-full">
-                <div className="h-full w-full overflow-hidden rounded-[20px]">
-                  <img
-                    src={SERVICE_DEEP_DIVE_PHOTOS[idx]}
-                    alt={service.shortTitle}
-                    className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                  />
+              <a
+                href={`#${service.id}`}
+                className="group block rounded-[26px] bg-[var(--bg-peach)] p-4 transition-transform duration-300 hover:scale-[1.02]"
+              >
+                <div className="relative h-[155px] w-full">
+                  <div className="h-full w-full overflow-hidden rounded-[20px]">
+                    <img
+                      src={SERVICE_DEEP_DIVE_PHOTOS[idx]}
+                      alt={service.shortTitle}
+                      className="om-lens-img h-full w-full object-cover"
+                    />
+                  </div>
+
+                  <div className="absolute -bottom-[1px] -right-[1px] z-10 rounded-tl-[16px] bg-[var(--bg-peach)] pl-2.5 pt-2 pb-0.5 pr-0.5">
+                    <InvertedFillet
+                      fillClass="text-[var(--bg-peach)]"
+                      position="bottom-right"
+                      size={14}
+                      className="absolute bottom-0 -left-[13px]"
+                    />
+                    <InvertedFillet
+                      fillClass="text-[var(--bg-peach)]"
+                      position="bottom-right"
+                      size={14}
+                      className="absolute -top-[13px] right-0"
+                    />
+                    <span className="inline-block rounded-full border border-[var(--divider-line)] bg-[var(--bg-canvas)] px-3 py-0.5 text-[10.5px] font-medium text-[var(--text-primary)]">
+                      {service.metricValue}
+                    </span>
+                  </div>
                 </div>
 
-                <div className="absolute -bottom-[1px] -right-[1px] z-10 rounded-tl-[16px] bg-[var(--bg-peach)] pl-2.5 pt-2 pb-0.5 pr-0.5">
-                  <InvertedFillet
-                    fillClass="text-[var(--bg-peach)]"
-                    position="bottom-right"
-                    size={14}
-                    className="absolute bottom-0 -left-[13px]"
-                  />
-                  <InvertedFillet
-                    fillClass="text-[var(--bg-peach)]"
-                    position="bottom-right"
-                    size={14}
-                    className="absolute -top-[13px] right-0"
-                  />
-                  <span className="inline-block rounded-full border border-[var(--divider-line)] bg-[var(--bg-canvas)] px-3 py-0.5 text-[10.5px] font-medium text-[var(--text-primary)]">
-                    {service.metricValue}
+                <div className="mt-4 flex items-center justify-between px-1 pb-1">
+                  <div>
+                    <span className="text-[11px] font-medium text-[#00B64F]">
+                      0{idx + 1} · Pillar
+                    </span>
+                    <h2 className="mt-0.5 text-lg font-medium text-[var(--text-primary)] group-hover:text-[#FF6B00] transition-colors">
+                      {service.title}
+                    </h2>
+                  </div>
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--bg-canvas)] text-[var(--text-primary)] transition-colors group-hover:bg-[#FF6B00] group-hover:text-white">
+                    ↓
                   </span>
                 </div>
-              </div>
-
-              <div className="mt-4 flex items-center justify-between px-1 pb-1">
-                <div>
-                  <span className="text-[11px] font-medium text-[#00B64F]">
-                    0{idx + 1} · Pillar
-                  </span>
-                  <h2 className="mt-0.5 text-lg font-medium text-[var(--text-primary)] group-hover:text-[#FF6B00] transition-colors">
-                    {service.title}
-                  </h2>
-                </div>
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--bg-canvas)] text-[var(--text-primary)] transition-colors group-hover:bg-[#FF6B00] group-hover:text-white">
-                  ↓
-                </span>
-              </div>
-            </a>
+              </a>
+            </ScrollReveal>
           ))}
         </div>
       </section>
@@ -138,7 +140,7 @@ export default function ServicesPage() {
       <section className="bg-[var(--bg-peach)] py-20 sm:py-24">
         <div className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 items-start">
-            <div className="lg:col-span-5">
+            <ScrollReveal variant="left" className="lg:col-span-5">
               <OmotiveEyebrow
                 first="Business"
                 second="Approach"
@@ -159,10 +161,10 @@ export default function ServicesPage() {
                   <CircledArrow className="h-4 w-4" />
                 </Link>
               </div>
-            </div>
-            <div className="lg:col-span-7 lg:pl-8">
+            </ScrollReveal>
+            <ScrollReveal variant="right" delay={140} className="lg:col-span-7 lg:pl-8">
               <ServicesAccordionSection />
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -174,15 +176,14 @@ export default function ServicesPage() {
         {SERVICES.map((service, idx) => {
           const isEven = idx % 2 === 0;
           return (
-            <div
+            <ScrollReveal
               key={service.id}
-              id={service.id}
+              variant={isEven ? "left" : "right"}
               className={`group rounded-[30px] p-6 sm:p-10 ${
                 isEven ? "om-floating-card" : "bg-[var(--bg-peach)]"
               }`}
             >
-              <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
-                {/* Photo Column with Seamless Cutout */}
+              <div id={service.id} className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
                 <div
                   className={`lg:col-span-6 ${
                     isEven ? "lg:order-1" : "lg:order-2"
@@ -193,7 +194,7 @@ export default function ServicesPage() {
                       <img
                         src={SERVICE_DEEP_DIVE_PHOTOS[idx]}
                         alt={service.shortTitle}
-                        className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                        className="om-lens-img h-full w-full object-cover"
                       />
                     </div>
 
@@ -231,7 +232,6 @@ export default function ServicesPage() {
                   </div>
                 </div>
 
-                {/* Copy Column */}
                 <div
                   className={`lg:col-span-6 space-y-5 ${
                     isEven ? "lg:order-2 lg:pl-4" : "lg:order-1 lg:pr-4"
@@ -274,7 +274,7 @@ export default function ServicesPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           );
         })}
       </section>
@@ -283,12 +283,12 @@ export default function ServicesPage() {
           4. PROCESS CAROUSEL
          ===================================================================== */}
       <section id="process" className="bg-[var(--bg-peach)] py-20 sm:py-24">
-        <div className="mx-auto max-w-[1180px] px-4 pb-10 sm:px-6 lg:px-8">
+        <ScrollReveal variant="left" className="mx-auto max-w-[1180px] px-4 pb-10 sm:px-6 lg:px-8">
           <OmotiveEyebrow first="Simple" second="process" icon="key" />
           <h2 className="om-h2 mt-5 text-[36px] text-[var(--text-primary)] sm:text-[44px]">
             Understand The Business Process.
           </h2>
-        </div>
+        </ScrollReveal>
         <div className="px-2 sm:px-4">
           <ProcessShowcaseSection />
         </div>
@@ -298,12 +298,12 @@ export default function ServicesPage() {
           5. CLIENT QUESTIONS & FAQ
          ===================================================================== */}
       <section className="mx-auto max-w-[1180px] px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mb-8 max-w-xl">
+        <ScrollReveal variant="left" className="mb-8 max-w-xl">
           <OmotiveEyebrow first="Client" second="Questions" icon="users" />
           <h2 className="om-h2 mt-4 text-[32px] text-[var(--text-primary)] sm:text-[40px]">
             Questions Business Owners Ask
           </h2>
-        </div>
+        </ScrollReveal>
         <ClientQuestionsAndFaqSection />
       </section>
     </div>

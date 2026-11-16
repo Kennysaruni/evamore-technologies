@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import {
   SERVICES,
@@ -9,6 +10,7 @@ import {
   FAQ_ITEMS,
 } from "@/lib/site-data";
 import { CircledArrow } from "./Navbar";
+import { ScrollReveal } from "./ScrollReveal";
 
 /**
  * Seamless concave SVG corner fillet for inverted border-radius cutouts.
@@ -104,15 +106,40 @@ export function EyebrowCircleIcon({ type }: { type: string }) {
 }
 
 /**
- * Hand-drawn curved underline SVG that draws itself from left to right on page load.
+ * Hand-drawn curved underline SVG that draws itself from left to right when scrolled into view.
  */
 export function AnimatedUnderline({
   className = "-bottom-2 left-0 w-full",
 }: {
   className?: string;
 }) {
+  const ref = useRef<SVGSVGElement | null>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setInView(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setInView(true);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <svg
+      ref={ref}
       aria-hidden="true"
       className={`pointer-events-none absolute text-[#FAD2C8] dark:text-[#FF6B00]/55 ${className}`}
       viewBox="0 0 220 12"
@@ -125,15 +152,14 @@ export function AnimatedUnderline({
         stroke="currentColor"
         strokeWidth="3.8"
         strokeLinecap="round"
-        className="om-draw-underline"
+        className={inView ? "om-draw-underline" : "om-underline-idle"}
       />
     </svg>
   );
 }
 
 /**
- * Reusable Omotive Eyebrow:
- * 36px Soft Blush Circle Icon on left + First Phrase + Green Handshake SVG + Second Phrase
+ * Reusable Omotive Eyebrow
  */
 export function OmotiveEyebrow({
   first,
@@ -207,8 +233,102 @@ const PROCESS_PHOTOS = [
   },
 ];
 
+/**
+ * Portals the modal directly to document.body at z-[9999] so it is never trapped
+ * inside the Hero portrait's z-10 stacking context below the 99% and Built for Mobile cards.
+ */
 export function HeroWalkthroughTrigger() {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [open]);
+
+  const modalContent = open ? (
+    <div
+      onClick={() => setOpen(false)}
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 p-4 backdrop-blur-md ev-fade"
+      role="dialog"
+      aria-modal="true"
+      aria-label="How Evamore Works"
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-[28px] border border-white/15 bg-[#141416] p-6 text-white shadow-2xl sm:p-8"
+      >
+        <div className="flex items-start justify-between gap-4 border-b border-white/10 pb-4">
+          <div>
+            <p className="text-xs font-medium text-[#FF6B00]">
+              3-Step System Walkthrough
+            </p>
+            <h3 className="om-h2 mt-1 text-xl text-white sm:text-2xl">
+              How we turn local searches into booked jobs
+            </h3>
+          </div>
+          <button
+            type="button"
+            onClick={() => setOpen(false)}
+            className="shrink-0 rounded-full border border-white/15 bg-white/5 p-2 text-zinc-300 hover:border-[#FF6B00] hover:text-white cursor-pointer"
+            aria-label="Close modal"
+          >
+            <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" />
+            </svg>
+          </button>
+        </div>
+
+        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          {PROCESS_STEPS.map((item) => (
+            <div
+              key={item.step}
+              className="rounded-2xl border border-white/10 bg-white/[0.04] p-4 transition-colors hover:border-[#FF6B00]/50"
+            >
+              <span className="text-xs font-semibold text-[#00B64F]">
+                Step {item.step}
+              </span>
+              <h4 className="mt-2 text-base font-medium text-white">
+                {item.title}
+              </h4>
+              <p className="mt-1.5 text-xs leading-relaxed text-zinc-400">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-white/10 pt-5">
+          <p className="text-xs text-zinc-400">
+            Approve your free mockup before we write a line of final code.
+          </p>
+          <Link
+            href="/contact"
+            onClick={() => setOpen(false)}
+            className="om-btn-primary"
+          >
+            <span>Get a free mockup</span>
+            <CircledArrow className="h-4 w-4" />
+          </Link>
+        </div>
+      </div>
+    </div>
+  ) : null;
 
   return (
     <>
@@ -227,70 +347,7 @@ export function HeroWalkthroughTrigger() {
         </span>
       </button>
 
-      {open && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 backdrop-blur-md ev-fade"
-          role="dialog"
-          aria-modal="true"
-          aria-label="How Evamore Works"
-        >
-          <div className="relative w-full max-w-2xl rounded-[28px] bg-[#141416] p-6 text-white border border-white/10 sm:p-8">
-            <div className="flex items-start justify-between gap-4 border-b border-white/10 pb-4">
-              <div>
-                <p className="text-xs font-medium text-[#FF6B00]">
-                  3-Step System Walkthrough
-                </p>
-                <h3 className="om-h2 mt-1 text-xl text-white sm:text-2xl">
-                  How we turn local searches into booked jobs
-                </h3>
-              </div>
-              <button
-                type="button"
-                onClick={() => setOpen(false)}
-                className="rounded-full border border-white/15 bg-white/5 p-2 text-zinc-300 hover:border-[#FF6B00] hover:text-white cursor-pointer"
-                aria-label="Close modal"
-              >
-                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" />
-                </svg>
-              </button>
-            </div>
-
-            <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
-              {PROCESS_STEPS.map((item) => (
-                <div
-                  key={item.step}
-                  className="rounded-2xl border border-white/10 bg-white/[0.04] p-4 transition-colors hover:border-[#FF6B00]/50"
-                >
-                  <span className="text-xs font-semibold text-[#00B64F]">
-                    Step {item.step}
-                  </span>
-                  <h4 className="mt-2 text-base font-medium text-white">
-                    {item.title}
-                  </h4>
-                  <p className="mt-1.5 text-xs leading-relaxed text-zinc-400">
-                    {item.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-white/10 pt-5">
-              <p className="text-xs text-zinc-400">
-                Approve your free mockup before we write a line of final code.
-              </p>
-              <Link
-                href="/contact"
-                onClick={() => setOpen(false)}
-                className="om-btn-primary"
-              >
-                <span>Get a free mockup</span>
-                <CircledArrow className="h-4 w-4" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
+      {mounted && modalContent ? createPortal(modalContent, document.body) : null}
     </>
   );
 }
@@ -411,9 +468,7 @@ export function ServicesAccordionSection() {
 }
 
 /**
- * 1:1 Match to Close-Up #2 with Smooth Morphing Carousel Transition:
- * Clicking < or > (or clicking a side card) smoothly slides the left/right photo
- * into the center while expanding its width (19% -> 60%) and height (285px -> 370px).
+ * 1:1 Match to Close-Up #2 with Smooth Morphing Carousel Transition
  */
 export function ProcessShowcaseSection() {
   const [centerIndex, setCenterIndex] = useState<number>(1);
@@ -427,7 +482,7 @@ export function ProcessShowcaseSection() {
   const centerStep = PROCESS_STEPS[centerIndex];
 
   return (
-    <div className="relative mx-auto max-w-[1240px]">
+    <ScrollReveal variant="zoom" duration={850} className="relative mx-auto max-w-[1240px]">
       {/* Desktop Smooth Morphing 3-Slot Stage */}
       <div className="hidden md:block relative h-[370px] w-full">
         {PROCESS_STEPS.map((step, index) => {
@@ -488,7 +543,6 @@ export function ProcessShowcaseSection() {
                   }`}
                 />
 
-                {/* Bottom-Left Title inside Center Photo */}
                 <div
                   className={`absolute bottom-5 left-6 z-10 max-w-[44%] transition-opacity duration-500 ${
                     isCenter ? "opacity-100 delay-150" : "opacity-0 pointer-events-none"
@@ -503,10 +557,9 @@ export function ProcessShowcaseSection() {
           );
         })}
 
-        {/* Seamless Bottom-Right Inverted-Corner Cutout Notch anchored to Center Card's Bottom-Right */}
         <div
           style={{ left: "50%", width: "30.2%" }}
-          className=" absolute -bottom-[2px] z-30 rounded-tl-[24px] bg-[var(--bg-peach)] pl-5 pt-3.5 pb-1.5 pr-3"
+          className="absolute -bottom-[2px] z-30 rounded-tl-[24px] bg-[var(--bg-peach)] pl-5 pt-3.5 pb-1.5 pr-3"
         >
           <InvertedFillet
             fillClass="text-[var(--bg-peach)]"
@@ -528,7 +581,6 @@ export function ProcessShowcaseSection() {
           </p>
         </div>
 
-        {/* Left Circular Arrow Button on Left Seam of Center Card */}
         <button
           type="button"
           onClick={prevStep}
@@ -543,7 +595,6 @@ export function ProcessShowcaseSection() {
           </span>
         </button>
 
-        {/* Right Solid Orange Circular Arrow Button on Right Seam of Center Card */}
         <button
           type="button"
           onClick={nextStep}
@@ -615,7 +666,7 @@ export function ProcessShowcaseSection() {
           </span>
         </button>
       </div>
-    </div>
+    </ScrollReveal>
   );
 }
 
@@ -625,9 +676,11 @@ export function ClientQuestionsAndFaqSection() {
   return (
     <div className="space-y-10">
       <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
-        {CLIENT_QUESTIONS.slice(0, 3).map((item) => (
-          <div
+        {CLIENT_QUESTIONS.slice(0, 3).map((item, idx) => (
+          <ScrollReveal
             key={item.question}
+            variant="zoom"
+            delay={idx * 110}
             className="om-floating-card flex flex-col justify-between rounded-[24px] p-6"
           >
             <div>
@@ -648,11 +701,11 @@ export function ClientQuestionsAndFaqSection() {
                 {item.solutionBody}
               </p>
             </div>
-          </div>
+          </ScrollReveal>
         ))}
       </div>
 
-      <div className="om-floating-card rounded-[26px] p-6 sm:p-8">
+      <ScrollReveal variant="zoom" delay={140} className="om-floating-card rounded-[26px] p-6 sm:p-8">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <h3 className="om-h2 text-2xl text-[var(--text-primary)]">
@@ -695,7 +748,7 @@ export function ClientQuestionsAndFaqSection() {
             })}
           </div>
         </div>
-      </div>
+      </ScrollReveal>
     </div>
   );
 }
