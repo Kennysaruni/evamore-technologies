@@ -140,9 +140,9 @@ export default function HomePage() {
                   />
                 </div>
 
-                {/* <p className="mt-2 text-[28px] font-normal leading-none tracking-tight text-white sm:mt-3 sm:text-[34px]">
-                  99<span className="text-base sm:text-lg">%</span>
-                </p> */}
+                <p className="mt-2 text-[28px] font-normal leading-none tracking-tight text-white sm:mt-3 sm:text-[34px]">
+                  <span className="text-base sm:text-lg">%</span>
+                </p>
                 <p className="mt-1.5 max-w-[125px] text-[10px] leading-[1.35] text-zinc-400 sm:mt-2 sm:text-[10.5px]">
                   Same-day alert when a quote request arrives.
                 </p>
