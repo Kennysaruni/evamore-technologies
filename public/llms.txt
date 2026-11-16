@@ -1,0 +1,82 @@
+# Evamore Technologies
+
+> Evamore Technologies builds fast, search-friendly websites for home-service businesses and clinics in the Greater Toronto Area (GTA), and sets up the automated quote follow-up system that turns quote requests into booked jobs.
+
+## Studio Overview
+- **Company Name:** Evamore Technologies
+- **Founder & Lead Full-Stack Developer:** Kenny
+- **Primary Market:** Greater Toronto Area (Toronto, Etobicoke, Mississauga, North York, Scarborough, Vaughan, Brampton, Markham, Oakville), Ontario, Canada
+- **Operating Model:** Remote web studio working from Kenya with business owners in Canada on standard Toronto business hours (Mon–Fri, 9:00 AM – 5:00 PM EST)
+- **Technology Stack:** React, Next.js, TypeScript, Tailwind CSS
+- **Core Value Proposition:** More customers find you. More of them book. One developer answers directly for every project, and clients approve a free custom homepage mockup before paying a cent.
+
+## Industries We Serve
+- Roofing & Exterior Contractors
+- HVAC (Heating, Ventilation & Air Conditioning)
+- Plumbing & Emergency Drain Services
+- Home Renovation & General Contracting
+- Dental Clinics
+- Electrical Contractors
+- Landscaping & Outdoor Living
+- Chiropractic & Physiotherapy Clinics
+
+## Core Services (`/services`)
+1. **Websites (Fast, Mobile-Ready 5-Page Builds):**
+   - Includes Home, Services, About, Contact, and 1 Service-Area page.
+   - Engineered with React and Next.js for sub-second mobile load speeds.
+   - Features sticky tap-to-call triggers and a 30-second quote request form above the fold.
+   - Typical turnaround: 5–10 business days after mockup approval.
+2. **Local SEO & Google Business Profile Setup:**
+   - Page titles, city/neighbourhood headings, and service-area copy written for how GTA customers search (e.g., "roofer in Etobicoke", "emergency plumber near me").
+   - Complete Google Business Profile (GBP) setup and category optimization.
+   - Built-in `Organization`, `ProfessionalService`, and `FAQPage` JSON-LD structured data.
+3. **Automated Quote Follow-Up System:**
+   - Logs every incoming quote request in one clean view.
+   - Sends an instant same-day SMS/email alert to the business owner's phone the moment a lead arrives.
+   - Automatically sends polite follow-up reminders at **Day 2** and **Day 5** if a quote goes unanswered.
+4. **Care Plan ($150 CAD/month — Optional, Cancel Anytime):**
+   - Managed high-speed hosting, SSL, daily backups, and security updates.
+   - Same-week text, photo, or pricing edits.
+   - Plain one-line monthly report: *Leads in · Quotes sent · Jobs booked.*
+
+## Transparent CAD Pricing (`/pricing`)
+- **Starter Site:** From **$1,500 CAD** (one-time) — 5 mobile-ready pages, quote form, tap-to-call, local SEO foundation, 100% client ownership.
+- **Growth System (Most Popular):** From **$2,500 CAD** (one-time) — Everything in Starter plus instant SMS/email lead alerts, automated Day 2 & Day 5 quote follow-up sequence, and lead status tracker.
+- **Care Plan:** **$150 CAD / month** (optional, month-to-month) — Managed hosting, updates, and one-line monthly lead report.
+- **Payment Terms:**
+  - Step 1: **$0 Free Custom Mockup** delivered within 3 business days.
+  - Step 2: **50% to start** development once you approve the mockup.
+  - Step 3: **50% before launch** upon approving the completed site. Client owns 100% of the code, content, and domain upon final payment.
+
+## Verified Client Builds & Case Studies (`/work`)
+- **Glamour Home Care (`glamourhomecare.org`):** Directed by Shavonnah. Mobile-first home care and patient support portal with dedicated care-service pages and frictionless family consultation requests.
+- **The Wealth Code Collective:** Headed by Lavie Pittmann. High-trust advisory and consulting platform with structured client onboarding and conversion pathways.
+- **NeuroSense Africa (`neurosenseafrica.com`):** Clinical and neurological health technology platform built for fast mobile load performance and clear patient/partner inquiries.
+- **Moonika Fashion House:** Custom retail and direct fitting/booking showcase engineered with Next.js.
+
+## Frequently Asked Questions
+- **What do you do?** We build fast, search-friendly websites for home-service businesses and clinics, and set up automated follow-up systems that answer quote requests faster.
+- **Who do you work with?** Contractors, roofers, HVAC and plumbing companies, renovators, electricians, landscapers, and dental or health clinics in Toronto and the GTA.
+- **Where are you based?** We work remotely from Kenya with clients in Canada, and schedule all calls and support in Toronto time (EST).
+- **How long does it take?** A Starter site typically takes 5–10 business days after mockup approval.
+- **Do I own the website?** Yes. Upon final payment, you own 100% of your website code, custom copy, and domain with zero lock-in.
+
+## Site Map & Key URLs
+- Home: `/`
+- Services: `/services`
+- Pricing: `/pricing`
+- Case Studies & Work: `/work`
+- About Evamore Technologies: `/about`
+- Local Business Guides & Blog: `/blog`
+  - *5 reasons customers leave your website before calling* (`/blog#5-reasons-customers-leave-your-website-before-calling`)
+  - *How fast should you reply to a quote request?* (`/blog#how-fast-should-you-reply-to-a-quote-request`)
+  - *What a local roofing website needs to rank in your city* (`/blog#what-a-local-roofing-website-needs-to-rank-in-your-city`)
+- Request a Free Mockup / Contact: `/contact`
+- Privacy Policy: `/privacy`
+- Terms of Service: `/terms`
+- XML Sitemap: `/sitemap.xml`
+
+## Direct Contact
+- **Email:** hello@evamore.ca
+- **Phone:** +1 (416) 555-0194
+- **Hours:** Monday–Friday, 9:00 AM – 5:00 PM EST (Toronto Time)
