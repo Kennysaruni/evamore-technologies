@@ -140,9 +140,9 @@ export default function HomePage() {
                   />
                 </div>
 
-                <p className="mt-2 text-[28px] font-normal leading-none tracking-tight text-white sm:mt-3 sm:text-[34px]">
+                {/* <p className="mt-2 text-[28px] font-normal leading-none tracking-tight text-white sm:mt-3 sm:text-[34px]">
                   99<span className="text-base sm:text-lg">%</span>
-                </p>
+                </p> */}
                 <p className="mt-1.5 max-w-[125px] text-[10px] leading-[1.35] text-zinc-400 sm:mt-2 sm:text-[10.5px]">
                   Same-day alert when a quote request arrives.
                 </p>
@@ -714,9 +714,8 @@ export default function HomePage() {
                     <img
                       src={item.avatarUrl}
                       alt={item.leader}
-                      className={`h-9 w-9 rounded-full object-cover ${
-                        idx > 0 ? "bg-white/95 p-1 object-contain" : ""
-                      }`}
+                      className={`h-9 w-9 rounded-full object-cover ${idx > 0 ? "bg-white/95 p-1 object-contain" : ""
+                        }`}
                     />
                     <span className="text-[13.5px] font-medium text-white">
                       {item.leader}
@@ -729,8 +728,8 @@ export default function HomePage() {
                       {idx === 0
                         ? "Wealth Code"
                         : idx === 1
-                        ? "Glamour Care"
-                        : "NeuroSense"}
+                          ? "Glamour Care"
+                          : "NeuroSense"}
                     </span>
                   </div>
                 </div>
