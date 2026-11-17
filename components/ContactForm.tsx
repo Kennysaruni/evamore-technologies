@@ -6,6 +6,8 @@ import { CircledArrow } from "./Navbar";
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [name, setName] = useState("");
   const [business, setBusiness] = useState("");
   const [website, setWebsite] = useState("");
@@ -13,9 +15,40 @@ export function ContactForm() {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setErrorMessage(null);
+
+    try {
+      const response = await fetch("/api/quotes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          business,
+          email,
+          phone,
+          website,
+          message,
+        }),
+      });
+
+      const data = (await response.json()) as { ok?: boolean; error?: string };
+      if (!response.ok || !data.ok) {
+        throw new Error(data.error || "Failed to submit quote request.");
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setErrorMessage(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please email us directly."
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -46,7 +79,10 @@ export function ContactForm() {
         </p>
         <button
           type="button"
-          onClick={() => setSubmitted(false)}
+          onClick={() => {
+            setSubmitted(false);
+            setMessage("");
+          }}
           className="om-btn-primary mt-7 cursor-pointer"
         >
           <span>Send another message</span>
@@ -61,6 +97,15 @@ export function ContactForm() {
       onSubmit={handleSubmit}
       className="om-floating-card rounded-[30px] p-6 sm:p-9 space-y-5"
     >
+      {errorMessage && (
+        <div
+          role="alert"
+          className="rounded-2xl border border-red-500/40 bg-red-500/10 px-4 py-3 text-xs font-medium text-red-600 dark:text-red-400"
+        >
+          {errorMessage}
+        </div>
+      )}
+
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
           <label
@@ -175,8 +220,12 @@ export function ContactForm() {
         <p className="text-xs text-[var(--text-muted)]">
           Free custom mockup within 3 business days · Zero obligation.
         </p>
-        <button type="submit" className="om-btn-primary cursor-pointer">
-          <span>Send</span>
+        <button
+          type="submit"
+          disabled={submitting}
+          className="om-btn-primary cursor-pointer disabled:opacity-60"
+        >
+          <span>{submitting ? "Sending..." : "Send"}</span>
           <CircledArrow className="h-4 w-4" />
         </button>
       </div>
