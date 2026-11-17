@@ -23,7 +23,7 @@ export function Footer() {
           {/* Middle Two-Column Area matching Omotive Footer */}
           <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-12">
             {/* Left Column */}
-            <div className="lg:col-span-6 flex flex-col justify-between space-y-8">
+            <div className="lg:col-span-5 flex flex-col justify-between space-y-8">
               <div>
                 <p className="text-sm font-medium text-white">
                   Request your free website mockup
@@ -61,7 +61,7 @@ export function Footer() {
             </div>
 
             {/* Right Column */}
-            <div className="lg:col-span-6 grid grid-cols-2 gap-8 sm:grid-cols-3">
+            <div className="lg:col-span-7 grid grid-cols-2 gap-6 sm:grid-cols-[0.8fr_0.95fr_1.55fr]">
               <div>
                 <p className="text-xs font-medium text-white">Pages</p>
                 <ul className="mt-3.5 space-y-2.5 text-xs text-zinc-400">
@@ -119,10 +119,10 @@ export function Footer() {
                 </ul>
               </div>
 
-              <div className="col-span-2 sm:col-span-1">
+              <div className="col-span-2 min-w-0 sm:col-span-1">
                 <p className="text-xs font-medium text-white">Toronto Hours</p>
                 <div className="mt-3.5 space-y-2 text-xs text-zinc-400">
-                  <p>
+                  <p className="break-words">
                     <a
                       href={`mailto:${SITE_CONFIG.email}`}
                       className="text-zinc-200 hover:text-[#FF6B00] transition-colors"
