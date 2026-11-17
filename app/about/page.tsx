@@ -8,6 +8,7 @@ import {
 } from "@/components/HomeInteractive";
 import { CircledArrow } from "@/components/Navbar";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { SITE_CONFIG } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "About Evamore Technologies",
@@ -178,9 +179,140 @@ export default function AboutPage() {
                     className="absolute -top-[15px] right-0"
                   />
                   <span className="inline-block rounded-full border border-[var(--divider-line)] bg-[var(--bg-canvas)] px-4 py-1 text-[11px] font-medium text-[var(--text-primary)]">
-                    Kenny · Founder
+                    Next.js · React Studio
                   </span>
                 </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================================
+          2. MEET OUR DEVELOPER & FOUNDER (Kenny's Office Portrait + Buyer Trust)
+         ===================================================================== */}
+      <section className="mx-auto max-w-[1180px] px-4 pt-20 sm:px-6 sm:pt-24 lg:px-8">
+        <div className="om-floating-card rounded-[32px] p-6 sm:p-10 lg:p-12">
+          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
+            {/* Left Column: Founder Portrait with Inverted-Corner Cutout */}
+            <ScrollReveal variant="left" className="lg:col-span-5">
+              <div className="group relative mx-auto aspect-square w-full max-w-[400px]">
+                <div className="h-full w-full overflow-hidden rounded-[28px] bg-[#141416]">
+                  <img
+                    src="/Evamore Technologies Office Portrait.png"
+                    alt="Kenny, Developer and Founder of Evamore Technologies"
+                    className="om-lens-img h-full w-full object-cover object-top"
+                  />
+                </div>
+
+                {/* Top-Left Emerald Green Trust Badge */}
+                <div className="absolute left-4 top-4 z-10 rounded-full bg-[#00B64F] px-3.5 py-1.5 text-[11px] font-medium text-white shadow-md shadow-[#00B64F]/30">
+                  Direct 1-on-1 Support
+                </div>
+
+                {/* Seamless Bottom-Right Cutout Pill */}
+                <div className="absolute -bottom-[1px] -right-[1px] z-10 rounded-tl-[20px] bg-[var(--glass-surface)] pl-3.5 pt-2.5 pb-0.5 pr-0.5">
+                  <InvertedFillet
+                    fillClass="text-[var(--bg-canvas)]"
+                    position="bottom-right"
+                    size={18}
+                    className="absolute bottom-0 -left-[17px]"
+                  />
+                  <InvertedFillet
+                    fillClass="text-[var(--bg-canvas)]"
+                    position="bottom-right"
+                    size={18}
+                    className="absolute -top-[17px] right-0"
+                  />
+                  <span className="inline-block rounded-full border border-[var(--divider-line)] bg-[var(--bg-canvas)] px-4 py-1.5 text-xs font-medium text-[var(--text-primary)]">
+                    Kenny · Founder &amp; Developer
+                  </span>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Right Column: Buyer-Focused Founder Story & Direct Booking CTA */}
+            <ScrollReveal variant="right" delay={120} className="lg:col-span-7 space-y-5">
+              <OmotiveEyebrow
+                first="Meet Our"
+                second="Developer & Founder"
+                icon="users"
+              />
+
+              <h2 className="om-h2 text-[32px] text-[var(--text-primary)] sm:text-[42px]">
+                I Personally Build &amp;{" "}
+                <span className="relative inline-block">
+                  Look After
+                  <AnimatedUnderline />
+                </span>{" "}
+                Every Project.
+              </h2>
+
+              <p className="text-[13.5px] leading-[1.65] text-[var(--text-secondary)]">
+                When you work with Evamore Technologies, you never get passed
+                off to a junior account manager or a support ticket queue. I
+                personally design, write the code, and set up the quote
+                follow-up system for your business from start to finish.
+              </p>
+
+              <p className="text-[13.5px] leading-[1.65] text-[var(--text-secondary)]">
+                From home-care providers like{" "}
+                <strong className="font-medium text-[var(--text-primary)]">
+                  Glamour Home Care
+                </strong>{" "}
+                and advisory teams like{" "}
+                <strong className="font-medium text-[var(--text-primary)]">
+                  The Wealth Code Collective
+                </strong>{" "}
+                to clinical platforms like{" "}
+                <strong className="font-medium text-[var(--text-primary)]">
+                  NeuroSense Africa
+                </strong>
+                , I&apos;ve helped service-driven businesses launch fast websites
+                that earn trust in seconds and turn inquiries into booked jobs.
+              </p>
+
+              <div className="grid grid-cols-1 gap-3 border-t border-[var(--divider-line)] pt-5 sm:grid-cols-3">
+                <div className="rounded-2xl bg-[var(--bg-peach)] px-4 py-3">
+                  <p className="text-xs font-semibold text-[#FF6B00]">
+                    Mockup First
+                  </p>
+                  <p className="mt-0.5 text-[11.5px] text-[var(--text-secondary)]">
+                    Approve the design before final build
+                  </p>
+                </div>
+                <div className="rounded-2xl bg-[var(--bg-peach)] px-4 py-3">
+                  <p className="text-xs font-semibold text-[#00B64F]">
+                    Toronto Hours
+                  </p>
+                  <p className="mt-0.5 text-[11.5px] text-[var(--text-secondary)]">
+                    Mon–Fri EST calls &amp; same-day replies
+                  </p>
+                </div>
+                <div className="rounded-2xl bg-[var(--bg-peach)] px-4 py-3">
+                  <p className="text-xs font-semibold text-[var(--text-primary)]">
+                    100% Yours
+                  </p>
+                  <p className="mt-0.5 text-[11.5px] text-[var(--text-secondary)]">
+                    Full ownership of code &amp; domain
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-3.5 pt-2">
+                <a
+                  href={SITE_CONFIG.bookingUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="om-btn-primary"
+                >
+                  <span>Book a Call with Kenny</span>
+                  <CircledArrow className="h-4 w-4" />
+                </a>
+                <Link href="/contact" className="om-btn-soft">
+                  <span>Get a free mockup</span>
+                  <CircledArrow className="h-4 w-4" />
+                </Link>
               </div>
             </ScrollReveal>
           </div>
