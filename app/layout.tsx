@@ -4,7 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { FAQ_ITEMS, SITE_CONFIG } from "@/lib/site-data";
+import { SITE_CONFIG } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.evamoretechnologies.com"),
@@ -49,14 +49,60 @@ export default function RootLayout({
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
+      "@id": "https://www.evamoretechnologies.com/#website",
       name: "Evamore Technologies",
-      alternateName: ["Evamore", "evamoretechnologies.com", "www.evamoretechnologies.com"],
+      alternateName: [
+        "Evamore",
+        "Evamore Tech",
+        "evamoretechnologies.com",
+        "www.evamoretechnologies.com",
+      ],
       url: "https://www.evamoretechnologies.com",
+      description: SITE_CONFIG.oneLiner,
+      publisher: {
+        "@id": "https://www.evamoretechnologies.com/#organization",
+      },
+      hasPart: [
+        {
+          "@type": "WebPage",
+          name: "About Evamore Technologies — Founder & Process",
+          url: "https://www.evamoretechnologies.com/about",
+        },
+        {
+          "@type": "WebPage",
+          name: "Services — Websites, Local SEO & Automated Quote Follow-Up",
+          url: "https://www.evamoretechnologies.com/services",
+        },
+        {
+          "@type": "WebPage",
+          name: "Recent Work & Client Case Studies",
+          url: "https://www.evamoretechnologies.com/work",
+        },
+        {
+          "@type": "WebPage",
+          name: "Website Design & Quote Follow-Up Pricing in CAD",
+          url: "https://www.evamoretechnologies.com/pricing",
+        },
+        {
+          "@type": "WebPage",
+          name: "Local Business Guides & Blog",
+          url: "https://www.evamoretechnologies.com/blog",
+        },
+        {
+          "@type": "WebPage",
+          name: "Contact & Free 3-Day Website Mockup Request",
+          url: "https://www.evamoretechnologies.com/contact",
+        },
+      ],
     },
     {
       "@context": "https://schema.org",
       "@type": ["Organization", "ProfessionalService"],
+      "@id": "https://www.evamoretechnologies.com/#organization",
       name: SITE_CONFIG.name,
+      legalName: "Evamore Technologies",
+      disambiguatingDescription:
+        "Evamore Technologies (spelled E-V-A-M-O-R-E, domain evamoretechnologies.com) is a custom Next.js web design, local SEO, and automated quote follow-up software studio founded by Kenny, serving home-service contractors and healthcare clinics in Toronto and the Greater Toronto Area (GTA), Canada. Distinct from Evermore Technologies.",
       url: "https://www.evamoretechnologies.com",
       logo: {
         "@type": "ImageObject",
@@ -64,35 +110,87 @@ export default function RootLayout({
         width: 1024,
         height: 1024,
       },
+      image: "https://www.evamoretechnologies.com/evamore-logo-banner.png",
       description: SITE_CONFIG.oneLiner,
       email: SITE_CONFIG.email,
       telephone: SITE_CONFIG.phone,
-      areaServed: {
-        "@type": "AdministrativeArea",
-        name: "Greater Toronto Area, Ontario, Canada",
-      },
+      priceRange: "$1,500 - $2,500 CAD",
+      currenciesAccepted: "CAD",
+      areaServed: [
+        {
+          "@type": "City",
+          name: "Toronto",
+        },
+        {
+          "@type": "AdministrativeArea",
+          name: "Greater Toronto Area, Ontario, Canada",
+        },
+      ],
       founder: {
         "@type": "Person",
+        "@id": "https://www.evamoretechnologies.com/about#kenny",
         name: SITE_CONFIG.founder,
+        jobTitle: "Founder & Lead Full-Stack Developer",
+        image:
+          "https://www.evamoretechnologies.com/Evamore%20Technologies%20Office%20Portrait.png",
+        url: "https://www.evamoretechnologies.com/about",
       },
       knowsAbout: [
         "Web Design for Contractors",
         "Clinic Website Development",
         "Local SEO Greater Toronto Area",
         "Automated Quote Follow-Up Systems",
+        "Next.js & React Web Engineering",
       ],
     },
     {
       "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: FAQ_ITEMS.map((item) => ({
-        "@type": "Question",
-        name: item.question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: item.answer,
+      "@type": "ItemList",
+      name: "Evamore Technologies Site Navigation",
+      itemListElement: [
+        {
+          "@type": "SiteNavigationElement",
+          position: 1,
+          name: "Home",
+          url: "https://www.evamoretechnologies.com/",
         },
-      })),
+        {
+          "@type": "SiteNavigationElement",
+          position: 2,
+          name: "About",
+          url: "https://www.evamoretechnologies.com/about",
+        },
+        {
+          "@type": "SiteNavigationElement",
+          position: 3,
+          name: "Services",
+          url: "https://www.evamoretechnologies.com/services",
+        },
+        {
+          "@type": "SiteNavigationElement",
+          position: 4,
+          name: "Work & Case Studies",
+          url: "https://www.evamoretechnologies.com/work",
+        },
+        {
+          "@type": "SiteNavigationElement",
+          position: 5,
+          name: "Pricing (CAD)",
+          url: "https://www.evamoretechnologies.com/pricing",
+        },
+        {
+          "@type": "SiteNavigationElement",
+          position: 6,
+          name: "Blog & Local Guides",
+          url: "https://www.evamoretechnologies.com/blog",
+        },
+        {
+          "@type": "SiteNavigationElement",
+          position: 7,
+          name: "Contact & Free Mockup",
+          url: "https://www.evamoretechnologies.com/contact",
+        },
+      ],
     },
   ];
 

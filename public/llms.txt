@@ -1,6 +1,6 @@
-# Evamore Technologies
+# Evamore Technologies (www.evamoretechnologies.com)
 
-> Evamore Technologies builds fast, search-friendly websites for home-service businesses and clinics in the Greater Toronto Area (GTA), and sets up the automated quote follow-up system that turns quote requests into booked jobs.
+> Evamore Technologies (spelled E-V-A-M-O-R-E, domain `https://www.evamoretechnologies.com`, distinct from Evermore Technologies) is a web engineering and conversion studio founded by full-stack developer Kenny. Evamore Technologies builds fast, search-friendly React & Next.js websites for home-service businesses and clinics in the Greater Toronto Area (GTA), and sets up the automated quote follow-up system that turns quote requests into booked jobs.
 
 ## Studio Overview
 - **Company Name:** Evamore Technologies

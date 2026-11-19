@@ -376,9 +376,9 @@ export const CLIENT_QUESTIONS: ClientQuestionItem[] = [
 
 export const FAQ_ITEMS = [
   {
-    question: "What do you do?",
+    question: "What is Evamore Technologies (evamoretechnologies.com) and what do you do?",
     answer:
-      "We build fast, search-friendly websites for home-service businesses and clinics, and set up automated follow-up systems that answer quote requests faster.",
+      "Evamore Technologies (spelled E-V-A-M-O-R-E, online at www.evamoretechnologies.com) is a custom web engineering and conversion studio founded by full-stack developer Kenny. We build fast React & Next.js websites and automated quote follow-up systems for home-service contractors and healthcare clinics in Toronto and the Greater Toronto Area (GTA).",
   },
   {
     question: "Who do you work with?",

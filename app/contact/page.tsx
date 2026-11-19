@@ -19,8 +19,59 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
+  const contactStructuredData = [
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "@id": "https://www.evamoretechnologies.com/contact#contact",
+      name: "Contact Evamore Technologies — Get a Free 3-Day Website Mockup",
+      url: "https://www.evamoretechnologies.com/contact",
+      description:
+        "Request a free custom website mockup or book a Google Calendar call with Kenny at Evamore Technologies on Toronto business hours (EST).",
+      mainEntity: {
+        "@type": "Organization",
+        name: SITE_CONFIG.name,
+        url: "https://www.evamoretechnologies.com",
+        email: SITE_CONFIG.email,
+        telephone: SITE_CONFIG.phone,
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "sales and customer support",
+          email: SITE_CONFIG.email,
+          telephone: SITE_CONFIG.phone,
+          areaServed: ["CA", "US"],
+          availableLanguage: ["English"],
+        },
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://www.evamoretechnologies.com/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Contact",
+          item: "https://www.evamoretechnologies.com/contact",
+        },
+      ],
+    },
+  ];
+
   return (
     <div className="overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(contactStructuredData),
+        }}
+      />
       <section className="relative mx-auto max-w-[1180px] px-4 pb-20 pt-8 sm:px-6 sm:pt-12 lg:px-8">
         <div
           aria-hidden="true"

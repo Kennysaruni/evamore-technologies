@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ARTICLES } from "@/lib/site-data";
+import { ARTICLES, SITE_CONFIG } from "@/lib/site-data";
 import {
   OmotiveEyebrow,
   InvertedFillet,
@@ -25,8 +25,68 @@ const ARTICLE_IMAGES = [
 ];
 
 export default function BlogPage() {
+  const blogStructuredData = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "@id": "https://www.evamoretechnologies.com/blog#blog",
+      name: "Evamore Technologies — Practical Local Business & Contractor Web Guides",
+      url: "https://www.evamoretechnologies.com/blog",
+      publisher: {
+        "@type": "Organization",
+        name: SITE_CONFIG.name,
+        url: "https://www.evamoretechnologies.com",
+      },
+      blogPost: ARTICLES.map((post, idx) => ({
+        "@type": "BlogPosting",
+        headline: post.title,
+        url: `https://www.evamoretechnologies.com/blog#${post.slug}`,
+        description: post.excerpt,
+        image: ARTICLE_IMAGES[idx % ARTICLE_IMAGES.length],
+        author: {
+          "@type": "Person",
+          name: SITE_CONFIG.founder,
+          url: "https://www.evamoretechnologies.com/about",
+        },
+        publisher: {
+          "@type": "Organization",
+          name: SITE_CONFIG.name,
+          url: "https://www.evamoretechnologies.com",
+        },
+        articleSection: post.category,
+        articleBody: post.sections
+          .map((s) => `${s.heading}: ${s.body}`)
+          .join(" "),
+      })),
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://www.evamoretechnologies.com/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Blog & Local Guides",
+          item: "https://www.evamoretechnologies.com/blog",
+        },
+      ],
+    },
+  ];
+
   return (
     <div className="overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(blogStructuredData),
+        }}
+      />
       {/* 1. HERO + 3 OMOTIVE ARTICLE CARDS */}
       <section className="relative mx-auto max-w-[1180px] px-4 pb-20 pt-8 sm:px-6 sm:pt-12 lg:px-8">
         <div

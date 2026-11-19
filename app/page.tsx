@@ -5,6 +5,7 @@ import {
   SITE_CONFIG,
   TESTIMONIALS,
   ARTICLES,
+  FAQ_ITEMS,
 } from "@/lib/site-data";
 import {
   HeroWalkthroughTrigger,
@@ -60,8 +61,27 @@ export default function HomePage() {
     ...SITE_CONFIG.industries,
   ];
 
+  const homeStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQ_ITEMS.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+
   return (
     <div className="overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(homeStructuredData),
+        }}
+      />
       {/* =====================================================================
           1. HERO SECTION (1:1 Replica of Close-Up #4 + Split-Stage Glide)
          ===================================================================== */}
