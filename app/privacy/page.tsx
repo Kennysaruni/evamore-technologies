@@ -5,6 +5,13 @@ import { OmotiveEyebrow, AnimatedUnderline } from "@/components/HomeInteractive"
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "How Evamore Technologies collects, uses, and protects your contact information.",
+  alternates: {
+    canonical: "https://www.evamoretechnologies.com/privacy",
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function PrivacyPage() {

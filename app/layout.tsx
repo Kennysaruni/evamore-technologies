@@ -7,7 +7,7 @@ import { Footer } from "@/components/Footer";
 import { FAQ_ITEMS, SITE_CONFIG } from "@/lib/site-data";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://evamoretechnologies.com"),
+  metadataBase: new URL("https://www.evamoretechnologies.com"),
   title: {
     default: "Websites for Toronto Contractors and Clinics | Evamore Technologies",
     template: "%s | Evamore Technologies",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "Fast, local-SEO websites and quote follow-up for Toronto-area contractors and clinics. Get a free mockup.",
   openGraph: {
     type: "website",
-    url: "https://evamoretechnologies.com",
+    url: "https://www.evamoretechnologies.com",
     siteName: "Evamore Technologies",
     title: "Evamore Technologies — Websites for Toronto Contractors and Clinics",
     description:
@@ -50,17 +50,17 @@ export default function RootLayout({
       "@context": "https://schema.org",
       "@type": "WebSite",
       name: "Evamore Technologies",
-      alternateName: ["Evamore", "evamoretechnologies.com"],
-      url: "https://evamoretechnologies.com",
+      alternateName: ["Evamore", "evamoretechnologies.com", "www.evamoretechnologies.com"],
+      url: "https://www.evamoretechnologies.com",
     },
     {
       "@context": "https://schema.org",
       "@type": ["Organization", "ProfessionalService"],
       name: SITE_CONFIG.name,
-      url: "https://evamoretechnologies.com",
+      url: "https://www.evamoretechnologies.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://evamoretechnologies.com/evamore-logo-mark.png",
+        url: "https://www.evamoretechnologies.com/evamore-logo-mark.png",
         width: 1024,
         height: 1024,
       },

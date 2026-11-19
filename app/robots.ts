@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://evamoretechnologies.com";
+const BASE_URL = "https://www.evamoretechnologies.com";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -9,6 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: ["/", "/llm.txt", "/llms.txt"],
+        disallow: ["/api/", "/privacy", "/terms"],
       },
       {
         userAgent: [
@@ -23,6 +23,7 @@ export default function robots(): MetadataRoute.Robots {
           "Bingbot",
         ],
         allow: ["/", "/llm.txt", "/llms.txt"],
+        disallow: ["/api/", "/privacy", "/terms"],
       },
     ],
     sitemap: `${BASE_URL}/sitemap.xml`,

@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   title: "Website Pricing for Local Businesses",
   description:
     "Starter, Growth and Care plans for GTA home-service businesses. Clear prices in CAD.",
+  alternates: {
+    canonical: "https://www.evamoretechnologies.com/pricing",
+  },
 };
 
 const PAYMENT_STEPS = [

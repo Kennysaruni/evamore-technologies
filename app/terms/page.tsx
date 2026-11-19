@@ -5,6 +5,13 @@ import { OmotiveEyebrow, AnimatedUnderline } from "@/components/HomeInteractive"
 export const metadata: Metadata = {
   title: "Terms of Service",
   description: "Payment schedule, site ownership, revisions, and project terms for Evamore Technologies.",
+  alternates: {
+    canonical: "https://www.evamoretechnologies.com/terms",
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function TermsPage() {

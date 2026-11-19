@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   title: "Helpful Reads for Local Business Owners",
   description:
     "Practical guides on website conversion, quote follow-up speed, and local SEO for GTA contractors and clinics.",
+  alternates: {
+    canonical: "https://www.evamoretechnologies.com/blog",
+  },
 };
 
 const ARTICLE_IMAGES = [

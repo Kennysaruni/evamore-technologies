@@ -3,7 +3,6 @@ import Link from "next/link";
 import {
   OmotiveEyebrow,
   InvertedFillet,
-  ProcessShowcaseSection,
   AnimatedUnderline,
 } from "@/components/HomeInteractive";
 import { CircledArrow } from "@/components/Navbar";
@@ -11,16 +10,19 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { SITE_CONFIG } from "@/lib/site-data";
 
 export const metadata: Metadata = {
-  title: "About Evamore Technologies",
+  title: "About Evamore Technologies | Mission, Process & Founder Credentials",
   description:
-    "A small web studio building sites for Toronto-area contractors and clinics.",
+    "Meet Kenny, founder and full-stack developer at Evamore Technologies. Learn about our mission, engineering credentials, and 4-phase delivery process for Toronto and GTA contractors and clinics.",
+  alternates: {
+    canonical: "https://www.evamoretechnologies.com/about",
+  },
 };
 
 const VALUES = [
   {
     step: "01",
     title: "Plain language",
-    body: "No agency buzzwords or 30-page decks. We tell you what's costing you customers and how we'll fix it.",
+    body: "No agency buzzwords or 30-page decks. We tell you exactly what is costing your business phone calls and quote requests, and how we will fix it in plain English.",
     photo:
       "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=85",
     badge: "Clear Copy",
@@ -28,7 +30,7 @@ const VALUES = [
   {
     step: "02",
     title: "Fast sites",
-    body: "Built with React and Next.js so pages open immediately on mobile phones when customers search for help.",
+    body: "Engineered with React 19 and Next.js App Router instead of bloated templates so pages open immediately on cellular connections when local customers search for help.",
     photo:
       "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=85",
     badge: "Next.js Speed",
@@ -36,16 +38,83 @@ const VALUES = [
   {
     step: "03",
     title: "Honest numbers",
-    body: "We measure results in leads in, quotes sent, and jobs booked—never vanity impressions.",
+    body: "We measure success in leads in, quotes sent, and jobs booked—never vanity impressions or incomprehensible marketing charts.",
     photo:
       "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=85",
     badge: "1-Line Report",
   },
 ];
 
+const DELIVERY_PROCESS_PHASES = [
+  {
+    phase: "Phase 01",
+    timeline: "Day 1",
+    title: "Conversion & Local Search Audit",
+    description:
+      "Before proposing a redesign, we inspect your existing website or local Google presence from a mobile customer's perspective. We check cellular load speed, tap-to-call visibility, service-area keyword gaps across the Greater Toronto Area, and where quote requests currently get delayed or lost.",
+    deliverable: "Plain-language breakdown of what is costing you leads",
+  },
+  {
+    phase: "Phase 02",
+    timeline: "Within 3 Business Days",
+    title: "Free Custom Homepage Mockup ($0 Upfront)",
+    description:
+      "You should never have to pay thousands of dollars upfront and hope you like what an agency builds. Within 3 business days, Kenny designs and shares a tailored homepage mockup built around your real services, brand identity, and target cities. You review the layout and request adjustments before committing.",
+    deliverable: "Interactive homepage design direction before any deposit",
+  },
+  {
+    phase: "Phase 03",
+    timeline: "5–10 Business Days",
+    title: "Full-Stack Next.js Build & Follow-Up Automation",
+    description:
+      "Once you approve the mockup and pay the 50% starting deposit, we write the production code in React and Next.js, craft done-for-you service pages, implement LocalBusiness and FAQPage JSON-LD schema, and wire your quote forms into our PostgreSQL lead database with instant phone alerts and Day 2 / Day 5 automatic follow-ups.",
+    deliverable: "Staging website + live automated quote follow-up pipeline",
+  },
+  {
+    phase: "Phase 04",
+    timeline: "Launch & Ongoing",
+    title: "Live Launch, 100% Ownership Handover & Care Plan",
+    description:
+      "After you test and approve the staging build, the final 50% balance is settled and we launch on your custom domain with SSL and Google Search Console indexing. You own 100% of the code, copy, and domain. If you want ongoing hosting, same-week edits, and a one-line monthly ROI report, you can add our optional $150 CAD/month Care Plan.",
+    deliverable: "100% client-owned live platform + optional monthly Care Plan",
+  },
+];
+
 export default function AboutPage() {
+  const aboutStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: "About Evamore Technologies",
+    url: "https://www.evamoretechnologies.com/about",
+    mainEntity: {
+      "@type": "Organization",
+      name: SITE_CONFIG.name,
+      url: "https://www.evamoretechnologies.com",
+      description: SITE_CONFIG.oneLiner,
+      founder: {
+        "@type": "Person",
+        name: "Kenny",
+        jobTitle: "Founder & Full-Stack Lead Developer",
+        knowsAbout: [
+          "Next.js App Router",
+          "React & TypeScript",
+          "PostgreSQL & Prisma ORM",
+          "Technical Local SEO",
+          "Automated Lead Capture & Quote Follow-Up Systems",
+        ],
+      },
+    },
+  };
+
   return (
     <div className="overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(aboutStructuredData),
+        }}
+      />
+
       {/* =====================================================================
           1. DISTINCT ABOUT HERO: Warm Peach Banner + Wide 3-Column Bento Stage
          ===================================================================== */}
@@ -70,9 +139,10 @@ export default function AboutPage() {
 
             <ScrollReveal variant="right" delay={120} className="lg:col-span-5 lg:pl-6">
               <p className="text-[13.5px] leading-[1.65] text-[var(--text-secondary)]">
-                Evamore Technologies is a small web studio led by Kenny, a
-                full-stack developer. We work remotely from Kenya with business
-                owners in Canada on standard Toronto business hours.
+                Evamore Technologies is a specialized web engineering studio led
+                by Kenny, a full-stack software developer. We work remotely from
+                Kenya with home-service contractors and clinics across Toronto
+                and the Greater Toronto Area on standard EST business hours.
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <Link href="/contact" className="om-btn-primary">
@@ -189,13 +259,13 @@ export default function AboutPage() {
       </section>
 
       {/* =====================================================================
-          2. MEET OUR DEVELOPER & FOUNDER (Kenny's Office Portrait + Buyer Trust)
+          2. MEET OUR DEVELOPER & FOUNDER (Kenny's Office Portrait + Credentials)
          ===================================================================== */}
       <section className="mx-auto max-w-[1180px] px-4 pt-20 sm:px-6 sm:pt-24 lg:px-8">
         <div className="om-floating-card rounded-[32px] p-6 sm:p-10 lg:p-12">
-          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
-            {/* Left Column: Founder Portrait with Inverted-Corner Cutout */}
-            <ScrollReveal variant="left" className="lg:col-span-5">
+          <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12">
+            {/* Left Column: Founder Portrait with Inverted-Corner Cutout + Technical Credentials */}
+            <ScrollReveal variant="left" className="lg:col-span-5 space-y-6">
               <div className="group relative mx-auto aspect-square w-full max-w-[400px]">
                 <div className="h-full w-full overflow-hidden rounded-[28px] bg-[#141416]">
                   <img
@@ -229,6 +299,45 @@ export default function AboutPage() {
                   </span>
                 </div>
               </div>
+
+              {/* Technical Credentials & Stack Box */}
+              <div className="rounded-[24px] bg-[var(--bg-peach)] p-5 border border-[var(--divider-line)]">
+                <p className="text-xs font-semibold uppercase tracking-wider text-[var(--text-primary)]">
+                  Founder Engineering Credentials
+                </p>
+                <ul className="mt-3 space-y-2 text-xs leading-[1.55] text-[var(--text-secondary)]">
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#00B64F]" />
+                    <span>
+                      <strong className="font-medium text-[var(--text-primary)]">
+                        Full-Stack Web Engineering:
+                      </strong>{" "}
+                      React 19, Next.js App Router, TypeScript, Tailwind CSS,
+                      Node.js, and PostgreSQL / Prisma ORM.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#00B64F]" />
+                    <span>
+                      <strong className="font-medium text-[var(--text-primary)]">
+                        Search &amp; Conversion Architecture:
+                      </strong>{" "}
+                      Core Web Vitals optimization, Schema.org JSON-LD markup,
+                      and automated quote follow-up workflows.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#00B64F]" />
+                    <span>
+                      <strong className="font-medium text-[var(--text-primary)]">
+                        Cross-Border Delivery:
+                      </strong>{" "}
+                      Proven production launches across home care, healthcare,
+                      and financial advisory clients on EST business hours.
+                    </span>
+                  </li>
+                </ul>
+              </div>
             </ScrollReveal>
 
             {/* Right Column: Buyer-Focused Founder Story & Direct Booking CTA */}
@@ -248,28 +357,45 @@ export default function AboutPage() {
                 Every Project.
               </h2>
 
-              <p className="text-[13.5px] leading-[1.65] text-[var(--text-secondary)]">
-                When you work with Evamore Technologies, you never get passed
-                off to a junior account manager or a support ticket queue. I
-                personally design, write the code, and set up the quote
-                follow-up system for your business from start to finish.
+              <p className="text-[13.5px] leading-[1.68] text-[var(--text-secondary)]">
+                When you hire a large marketing agency, your project is often
+                sold by a senior salesperson and quietly handed off to a
+                rotating queue of junior account managers or outsourced template
+                installers. At Evamore Technologies, there is zero hand-off. I
+                personally audit your current site, design your free 3-day
+                mockup, write the production code, and configure your automated
+                quote follow-up system from start to finish.
               </p>
 
-              <p className="text-[13.5px] leading-[1.65] text-[var(--text-secondary)]">
-                From home-care providers like{" "}
+              <p className="text-[13.5px] leading-[1.68] text-[var(--text-secondary)]">
+                Over the past several years, I&apos;ve partnered with
+                service-driven organizations across multiple industries—from
+                home-care directors like{" "}
                 <strong className="font-medium text-[var(--text-primary)]">
-                  Glamour Home Care
+                  Shavonnah at Glamour Home Care (glamourhomecare.org)
                 </strong>{" "}
-                and advisory teams like{" "}
+                and financial advisory leaders like{" "}
                 <strong className="font-medium text-[var(--text-primary)]">
-                  The Wealth Code Collective
+                  Lavie Pittmann at The Wealth Code Collective
                 </strong>{" "}
-                to clinical platforms like{" "}
+                to specialized clinical platforms like{" "}
                 <strong className="font-medium text-[var(--text-primary)]">
-                  NeuroSense Africa
+                  NeuroSense Africa (neurosenseafrica.com)
                 </strong>
-                , I&apos;ve helped service-driven businesses launch fast websites
-                that earn trust in seconds and turn inquiries into booked jobs.
+                . Every one of those builds solved the same core business
+                problem: making sure busy customers on mobile phones understand
+                your value immediately and can request help without friction.
+              </p>
+
+              <p className="text-[13.5px] leading-[1.68] text-[var(--text-secondary)]">
+                Although I work remotely from Kenya, my studio operates on
+                standard{" "}
+                <strong className="font-medium text-[var(--text-primary)]">
+                  Monday–Friday Toronto business hours (EST)
+                </strong>
+                . That means you get senior custom Next.js engineering and
+                same-day direct communication at transparent flat-rate CAD
+                pricing—without paying for downtown agency overhead.
               </p>
 
               <div className="grid grid-cols-1 gap-3 border-t border-[var(--divider-line)] pt-5 sm:grid-cols-3">
@@ -320,21 +446,28 @@ export default function AboutPage() {
       </section>
 
       {/* =====================================================================
-          2. THREE RULES WE BUILD BY
+          3. OUR MISSION & THREE RULES WE BUILD BY
          ===================================================================== */}
       <section className="mx-auto max-w-[1180px] px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
-        <div className="mb-12 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
-          <ScrollReveal variant="left">
-            <OmotiveEyebrow first="Core" second="Values" icon="briefcase" />
+        <div className="mb-12 grid grid-cols-1 items-end gap-8 lg:grid-cols-12">
+          <ScrollReveal variant="left" className="lg:col-span-6">
+            <OmotiveEyebrow
+              first="Our Mission"
+              second="& Core Values"
+              icon="briefcase"
+            />
             <h2 className="om-h2 mt-5 text-[36px] text-[var(--text-primary)] sm:text-[44px]">
-              Three Rules We <br />
-              Build By.
+              Why Evamore Exists &amp; <br />
+              Three Rules We Build By.
             </h2>
           </ScrollReveal>
-          <ScrollReveal variant="right" delay={120}>
-            <p className="max-w-[330px] text-[12.5px] leading-[1.6] text-[var(--text-secondary)]">
-              You see a mockup before you pay the second half. We measure results
-              in leads and booked jobs, not buzzwords.
+          <ScrollReveal variant="right" delay={120} className="lg:col-span-6">
+            <p className="text-[13.5px] leading-[1.65] text-[var(--text-secondary)]">
+              Our mission is simple: help skilled local contractors and clinics
+              in the Greater Toronto Area stop losing high-value jobs to
+              competitors who merely have faster websites or quicker quote
+              follow-up. You shouldn&apos;t need to become a marketer to keep
+              your crew or clinic schedule full.
             </p>
           </ScrollReveal>
         </div>
@@ -376,7 +509,7 @@ export default function AboutPage() {
               <h3 className="text-xl font-medium text-[var(--text-primary)] group-hover:text-[#FF6B00] transition-colors">
                 {val.title}
               </h3>
-              <p className="text-[12.5px] leading-[1.6] text-[var(--text-secondary)]">
+              <p className="text-[13px] leading-[1.62] text-[var(--text-secondary)]">
                 {val.body}
               </p>
             </ScrollReveal>
@@ -385,7 +518,7 @@ export default function AboutPage() {
       </section>
 
       {/* =====================================================================
-          3. HOW WE WORK (Matte Black Section with Cutout Cards)
+          4. HOW WE WORK (Matte Black Section with Cutout Cards)
          ===================================================================== */}
       <section className="bg-[#121214] py-20 text-white sm:py-24">
         <div className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8">
@@ -409,19 +542,19 @@ export default function AboutPage() {
                 title: "One Person Answers",
                 category: "No Account Managers",
                 pill: "Direct Access",
-                body: "You speak directly with Kenny—the developer writing your code and setting up your lead alerts.",
+                body: "You speak directly with Kenny—the developer writing your code, structuring your service pages, and setting up your lead alerts.",
               },
               {
                 title: "Mockup Comes First",
                 category: "Zero Upfront Risk",
                 pill: "3 Business Days",
-                body: "You review and approve a custom homepage mockup for your business before we write final code.",
+                body: "You review and approve a custom homepage mockup for your business before we write final production code or ask for a deposit.",
               },
               {
                 title: "Toronto Timezone",
                 category: "Mon–Fri Support",
                 pill: "EST Hours",
-                body: "All calls, updates, and same-day support happen on standard Greater Toronto Area business hours.",
+                body: "All calls, project reviews, and same-day support happen on standard Greater Toronto Area business hours (9 AM – 5 PM EST).",
               },
             ].map((card, idx) => (
               <ScrollReveal
@@ -471,17 +604,80 @@ export default function AboutPage() {
       </section>
 
       {/* =====================================================================
-          4. PROCESS CAROUSEL
+          5. OUR 4-PHASE ENGINEERING & DELIVERY PROCESS (Unique In-Depth Breakdown)
          ===================================================================== */}
       <section className="bg-[var(--bg-peach)] py-20 sm:py-24">
-        <ScrollReveal variant="left" className="mx-auto max-w-[1180px] px-4 pb-10 sm:px-6 lg:px-8">
-          <OmotiveEyebrow first="Simple" second="process" icon="key" />
-          <h2 className="om-h2 mt-5 text-[36px] text-[var(--text-primary)] sm:text-[44px]">
-            Understand The Business Process.
-          </h2>
-        </ScrollReveal>
-        <div className="px-2 sm:px-4">
-          <ProcessShowcaseSection />
+        <div className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 items-end gap-8 lg:grid-cols-12">
+            <ScrollReveal variant="left" className="lg:col-span-7">
+              <OmotiveEyebrow
+                first="Step-By-Step"
+                second="Engineering Process"
+                icon="key"
+              />
+              <h2 className="om-h2 mt-5 text-[36px] text-[var(--text-primary)] sm:text-[44px]">
+                From Free Mockup To <br />
+                Live Lead Capture.
+              </h2>
+            </ScrollReveal>
+            <ScrollReveal variant="right" delay={120} className="lg:col-span-5">
+              <p className="text-[13.5px] leading-[1.65] text-[var(--text-secondary)]">
+                Here is the exact four-phase workflow we follow on every project
+                so you always know what is happening, what it costs, and when
+                your site goes live.
+              </p>
+            </ScrollReveal>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+            {DELIVERY_PROCESS_PHASES.map((item, idx) => (
+              <ScrollReveal
+                key={item.phase}
+                variant={idx % 2 === 0 ? "left" : "right"}
+                delay={idx * 90}
+                className="om-floating-card flex flex-col justify-between rounded-[28px] p-7 sm:p-8"
+              >
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="rounded-full bg-[#00B64F] px-3.5 py-1 text-xs font-medium text-white">
+                      {item.phase}
+                    </span>
+                    <span className="text-xs font-medium text-[#FF6B00]">
+                      {item.timeline}
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl font-medium text-[var(--text-primary)] sm:text-2xl">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-[13.5px] leading-[1.65] text-[var(--text-secondary)]">
+                    {item.description}
+                  </p>
+                </div>
+
+                <div className="mt-6 border-t border-[var(--divider-line)] pt-4 flex items-center justify-between gap-2">
+                  <span className="text-xs font-medium text-[var(--text-primary)]">
+                    Milestone Output:
+                  </span>
+                  <span className="text-xs text-[var(--text-secondary)]">
+                    {item.deliverable}
+                  </span>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          <ScrollReveal variant="zoom" delay={200} className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <Link href="/contact" className="om-btn-primary">
+              <span>Start Phase 1: Request Your Free Mockup</span>
+              <CircledArrow className="h-4 w-4" />
+            </Link>
+            <Link href="/services" className="om-btn-soft">
+              <span>Explore Our Services</span>
+              <CircledArrow className="h-4 w-4" />
+            </Link>
+          </ScrollReveal>
         </div>
       </section>
     </div>

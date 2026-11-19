@@ -61,22 +61,18 @@
 - **How long does it take?** A Starter site typically takes 5–10 business days after mockup approval.
 - **Do I own the website?** Yes. Upon final payment, you own 100% of your website code, custom copy, and domain with zero lock-in.
 
-## Site Map & Key URLs
-- Home: `/`
-- Services: `/services`
-- Pricing: `/pricing`
-- Case Studies & Work: `/work`
-- About Evamore Technologies: `/about`
-- Local Business Guides & Blog: `/blog`
-  - *5 reasons customers leave your website before calling* (`/blog#5-reasons-customers-leave-your-website-before-calling`)
-  - *How fast should you reply to a quote request?* (`/blog#how-fast-should-you-reply-to-a-quote-request`)
-  - *What a local roofing website needs to rank in your city* (`/blog#what-a-local-roofing-website-needs-to-rank-in-your-city`)
-- Request a Free Mockup / Contact: `/contact`
-- Privacy Policy: `/privacy`
-- Terms of Service: `/terms`
-- XML Sitemap: `/sitemap.xml`
+## Site Map & Key URLs (`https://www.evamoretechnologies.com`)
+- Home: `https://www.evamoretechnologies.com/`
+- Services: `https://www.evamoretechnologies.com/services`
+- Case Studies & Work: `https://www.evamoretechnologies.com/work`
+- About Evamore Technologies: `https://www.evamoretechnologies.com/about`
+- Request a Free Mockup / Contact: `https://www.evamoretechnologies.com/contact`
+- Pricing: `https://www.evamoretechnologies.com/pricing`
+- Local Business Guides & Blog: `https://www.evamoretechnologies.com/blog`
+- XML Sitemap: `https://www.evamoretechnologies.com/sitemap.xml`
 
 ## Direct Contact
-- **Email:** hello@evamore.ca
-- **Phone:** +1 (416) 555-0194
+- **Email:** kenny@evamoretechnologies.com
+- **Phone:** +254 703 546 026
+- **Book a Call:** https://calendar.app.google/EJ7qkMBJ6T8XGxJB6
 - **Hours:** Monday–Friday, 9:00 AM – 5:00 PM EST (Toronto Time)

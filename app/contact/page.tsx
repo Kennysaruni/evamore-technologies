@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   title: "Get a Free Website Mockup",
   description:
     "Tell us what's not working and get a free mockup plan within one business day.",
+  alternates: {
+    canonical: "https://www.evamoretechnologies.com/contact",
+  },
 };
 
 export default function ContactPage() {

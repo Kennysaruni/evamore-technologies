@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   SITE_CONFIG,
@@ -16,6 +17,12 @@ import {
 } from "@/components/HomeInteractive";
 import { CircledArrow } from "@/components/Navbar";
 import { ScrollReveal } from "@/components/ScrollReveal";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.evamoretechnologies.com",
+  },
+};
 
 const ARTICLE_IMAGES = [
   "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=85",
