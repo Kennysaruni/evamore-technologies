@@ -1,4 +1,4 @@
-import { defineConfig, env } from "prisma/config";
+import { defineConfig } from "prisma/config";
 
 try {
   process.loadEnvFile(".env");
@@ -9,6 +9,9 @@ try {
 export default defineConfig({
   schema: "prisma/schema.prisma",
   datasource: {
-    url: env("DATABASE_URL_UNPOOLED"),
+    url:
+      process.env.DATABASE_URL_UNPOOLED ||
+      process.env.DATABASE_URL ||
+      "postgresql://placeholder:placeholder@localhost:5432/placeholder",
   },
 });
