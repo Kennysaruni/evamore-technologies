@@ -1,78 +1,33 @@
-# Evamore Technologies (www.evamoretechnologies.com)
+# Evamore Technologies
 
-> Evamore Technologies (spelled E-V-A-M-O-R-E, domain `https://www.evamoretechnologies.com`, distinct from Evermore Technologies) is a web engineering and conversion studio founded by full-stack developer Kenny. Evamore Technologies builds fast, search-friendly React & Next.js websites for home-service businesses and clinics in the Greater Toronto Area (GTA), and sets up the automated quote follow-up system that turns quote requests into booked jobs.
+> Evamore Technologies (spelled E-V-A-M-O-R-E, canonical domain https://www.evamoretechnologies.com, distinct from Evermore Technologies) is a web engineering and conversion studio founded by full-stack developer Kenny. Evamore Technologies builds fast, search-friendly React & Next.js websites for home-service contractors and healthcare clinics in Toronto and the Greater Toronto Area (GTA), and sets up automated quote follow-up systems that turn quote requests into booked jobs.
 
-## Studio Overview
-- **Company Name:** Evamore Technologies
-- **Founder & Lead Full-Stack Developer:** Kenny
-- **Primary Market:** Greater Toronto Area (Toronto, Etobicoke, Mississauga, North York, Scarborough, Vaughan, Brampton, Markham, Oakville), Ontario, Canada
-- **Operating Model:** Remote web studio working from Kenya with business owners in Canada on standard Toronto business hours (Mon–Fri, 9:00 AM – 5:00 PM EST)
-- **Technology Stack:** React, Next.js, TypeScript, Tailwind CSS
-- **Core Value Proposition:** More customers find you. More of them book. One developer answers directly for every project, and clients approve a free custom homepage mockup before paying a cent.
+Evamore Technologies operates on standard Monday–Friday Toronto business hours (9:00 AM – 5:00 PM EST) and delivers every website starting with a $0 free 3-day homepage mockup before any deposit. Clients own 100% of their website code, content, and domain upon final payment.
 
-## Industries We Serve
-- Roofing & Exterior Contractors
-- HVAC (Heating, Ventilation & Air Conditioning)
-- Plumbing & Emergency Drain Services
-- Home Renovation & General Contracting
-- Dental Clinics
-- Electrical Contractors
-- Landscaping & Outdoor Living
-- Chiropractic & Physiotherapy Clinics
+## Core Pages
 
-## Core Services (`/services`)
-1. **Websites (Fast, Mobile-Ready 5-Page Builds):**
-   - Includes Home, Services, About, Contact, and 1 Service-Area page.
-   - Engineered with React and Next.js for sub-second mobile load speeds.
-   - Features sticky tap-to-call triggers and a 30-second quote request form above the fold.
-   - Typical turnaround: 5–10 business days after mockup approval.
-2. **Local SEO & Google Business Profile Setup:**
-   - Page titles, city/neighbourhood headings, and service-area copy written for how GTA customers search (e.g., "roofer in Etobicoke", "emergency plumber near me").
-   - Complete Google Business Profile (GBP) setup and category optimization.
-   - Built-in `Organization`, `ProfessionalService`, and `FAQPage` JSON-LD structured data.
-3. **Automated Quote Follow-Up System:**
-   - Logs every incoming quote request in one clean view.
-   - Sends an instant same-day SMS/email alert to the business owner's phone the moment a lead arrives.
-   - Automatically sends polite follow-up reminders at **Day 2** and **Day 5** if a quote goes unanswered.
-4. **Care Plan ($150 CAD/month — Optional, Cancel Anytime):**
-   - Managed high-speed hosting, SSL, daily backups, and security updates.
-   - Same-week text, photo, or pricing edits.
-   - Plain one-line monthly report: *Leads in · Quotes sent · Jobs booked.*
+- [Evamore Technologies Home](https://www.evamoretechnologies.com/): Fast Next.js websites, local SEO, and automated quote follow-up systems for Toronto and GTA contractors and clinics.
+- [Services — Websites, Local SEO & Quote Follow-Up](https://www.evamoretechnologies.com/services): In-depth breakdown of high-converting 5-page contractor and clinic websites, local search & Core Web Vitals optimization, automated Day 2 and Day 5 quote follow-up, and the $150 CAD/month Managed Care Plan.
+- [Client Work & Case Studies](https://www.evamoretechnologies.com/work): Concrete project summaries (problem, solution, tech stack, and outcome) for Glamour Home Care, The Wealth Code Collective, NeuroSense Africa, and Moonika Fashion House.
+- [About Evamore Technologies & Founder Kenny](https://www.evamoretechnologies.com/about): Studio mission, founder full-stack engineering credentials, and 4-phase delivery process on Toronto EST hours.
+- [Website & Quote Follow-Up Pricing in CAD](https://www.evamoretechnologies.com/pricing): Transparent flat-rate Canadian Dollar packages: $1,500 CAD Starter Site, $2,500 CAD Growth System, and $150 CAD/month Care Plan with 50/50 milestone billing.
+- [Local Business Guides & Blog](https://www.evamoretechnologies.com/blog): Practical guides on mobile website conversion, quote follow-up speed, and local SEO for GTA roofers, HVAC, plumbers, and clinics.
+- [Contact & Free 3-Day Website Mockup Request](https://www.evamoretechnologies.com/contact): Request a free custom homepage mockup within one business day or book a call directly with Kenny.
 
-## Transparent CAD Pricing (`/pricing`)
-- **Starter Site:** From **$1,500 CAD** (one-time) — 5 mobile-ready pages, quote form, tap-to-call, local SEO foundation, 100% client ownership.
-- **Growth System (Most Popular):** From **$2,500 CAD** (one-time) — Everything in Starter plus instant SMS/email lead alerts, automated Day 2 & Day 5 quote follow-up sequence, and lead status tracker.
-- **Care Plan:** **$150 CAD / month** (optional, month-to-month) — Managed hosting, updates, and one-line monthly lead report.
-- **Payment Terms:**
-  - Step 1: **$0 Free Custom Mockup** delivered within 3 business days.
-  - Step 2: **50% to start** development once you approve the mockup.
-  - Step 3: **50% before launch** upon approving the completed site. Client owns 100% of the code, content, and domain upon final payment.
+## Local Business Guides
 
-## Verified Client Builds & Case Studies (`/work`)
-- **Glamour Home Care (`glamourhomecare.org`):** Directed by Shavonnah. Mobile-first home care and patient support portal with dedicated care-service pages and frictionless family consultation requests.
-- **The Wealth Code Collective:** Headed by Lavie Pittmann. High-trust advisory and consulting platform with structured client onboarding and conversion pathways.
-- **NeuroSense Africa (`neurosenseafrica.com`):** Clinical and neurological health technology platform built for fast mobile load performance and clear patient/partner inquiries.
-- **Moonika Fashion House:** Custom retail and direct fitting/booking showcase engineered with Next.js.
+- [5 reasons customers leave your website before calling](https://www.evamoretechnologies.com/blog#5-reasons-customers-leave-your-website-before-calling): Why mobile roadblocks, slow cellular load times, and hidden service areas cost contractors and clinics phone calls.
+- [How fast should you reply to a quote request?](https://www.evamoretechnologies.com/blog#how-fast-should-you-reply-to-a-quote-request): How instant phone alerts and automatic Day 2 and Day 5 estimate check-ins recover quiet leads.
+- [What a local roofing website needs to rank in your city](https://www.evamoretechnologies.com/blog#what-a-local-roofing-website-needs-to-rank-in-your-city): How dedicated service pages, Google Business Profile alignment, and LocalBusiness JSON-LD schema drive GTA rankings.
 
-## Frequently Asked Questions
-- **What do you do?** We build fast, search-friendly websites for home-service businesses and clinics, and set up automated follow-up systems that answer quote requests faster.
-- **Who do you work with?** Contractors, roofers, HVAC and plumbing companies, renovators, electricians, landscapers, and dental or health clinics in Toronto and the GTA.
-- **Where are you based?** We work remotely from Kenya with clients in Canada, and schedule all calls and support in Toronto time (EST).
-- **How long does it take?** A Starter site typically takes 5–10 business days after mockup approval.
-- **Do I own the website?** Yes. Upon final payment, you own 100% of your website code, custom copy, and domain with zero lock-in.
+## Featured Client Case Studies
 
-## Site Map & Key URLs (`https://www.evamoretechnologies.com`)
-- Home: `https://www.evamoretechnologies.com/`
-- Services: `https://www.evamoretechnologies.com/services`
-- Case Studies & Work: `https://www.evamoretechnologies.com/work`
-- About Evamore Technologies: `https://www.evamoretechnologies.com/about`
-- Request a Free Mockup / Contact: `https://www.evamoretechnologies.com/contact`
-- Pricing: `https://www.evamoretechnologies.com/pricing`
-- Local Business Guides & Blog: `https://www.evamoretechnologies.com/blog`
-- XML Sitemap: `https://www.evamoretechnologies.com/sitemap.xml`
+- [Glamour Home Care Case Study](https://www.evamoretechnologies.com/work#glamour-home-care): Mobile-first home care and patient support portal launched at [glamourhomecare.org](https://www.glamourhomecare.org/) for director Shavonnah.
+- [The Wealth Code Collective Case Study](https://www.evamoretechnologies.com/work#wealth-code-collective): High-trust financial advisory and client onboarding funnel built for Lavie Pittmann.
+- [NeuroSense Africa Case Study](https://www.evamoretechnologies.com/work#neurosense-africa): Fast clinical and neuro-health platform launched at [neurosenseafrica.com](https://www.neurosenseafrica.com/).
+- [Moonika Fashion House Case Study](https://www.evamoretechnologies.com/work#moonika-fashion-house): Next.js visual catalog and direct booking request architecture.
 
-## Direct Contact
-- **Email:** kenny@evamoretechnologies.com
-- **Phone:** +254 703 546 026
-- **Book a Call:** https://calendar.app.google/EJ7qkMBJ6T8XGxJB6
-- **Hours:** Monday–Friday, 9:00 AM – 5:00 PM EST (Toronto Time)
+## Optional & Technical Resources
+
+- [Book a Call on Google Calendar](https://calendar.app.google/EJ7qkMBJ6T8XGxJB6): Schedule a direct 1-on-1 discovery or mockup review call with Kenny on Toronto (EST) hours.
+- [XML Sitemap](https://www.evamoretechnologies.com/sitemap.xml): Canonical XML sitemap listing all public indexable URLs on `https://www.evamoretechnologies.com`.
