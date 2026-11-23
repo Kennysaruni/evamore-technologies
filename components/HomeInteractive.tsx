@@ -140,6 +140,11 @@ export function AnimatedUnderline({
     <svg
       ref={ref}
       aria-hidden="true"
+      style={
+        !inView
+          ? { opacity: 0, transform: "scaleX(0)", transformOrigin: "left center" }
+          : undefined
+      }
       className={`pointer-events-none absolute text-[#FAD2C8] dark:text-[#FF6B00]/55 ${
         inView ? "om-draw-underline" : "om-underline-idle"
       } ${className}`}
