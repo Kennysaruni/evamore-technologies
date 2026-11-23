@@ -19,9 +19,9 @@ export const metadata: Metadata = {
 };
 
 const ARTICLE_IMAGES = [
-  "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=900&q=85",
-  "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=85",
-  "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=900&q=85",
+  "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=560&q=75",
+  "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=560&q=75",
+  "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=560&q=75",
 ];
 
 export default function BlogPage() {

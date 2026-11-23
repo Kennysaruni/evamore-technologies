@@ -117,8 +117,12 @@ export default function ContactPage() {
             <div className="group relative h-[225px] w-full">
               <div className="h-full w-full overflow-hidden rounded-[26px]">
                 <img
-                  src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=900&q=85"
+                  src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=560&q=75"
                   alt="Planning your free website mockup"
+                  width={460}
+                  height={225}
+                  loading="lazy"
+                  decoding="async"
                   className="om-lens-img h-full w-full object-cover"
                 />
               </div>

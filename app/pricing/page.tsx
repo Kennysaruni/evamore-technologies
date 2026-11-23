@@ -25,7 +25,7 @@ const PAYMENT_STEPS = [
     body: "We design and send your custom homepage mockup within 3 business days before you pay a cent.",
     badge: "$0 Upfront",
     photo:
-      "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=560&q=75",
   },
   {
     step: "02",
@@ -33,7 +33,7 @@ const PAYMENT_STEPS = [
     body: "Once you approve the mockup direction, 50% starts development of your pages, local SEO, and quote forms.",
     badge: "50% Deposit",
     photo:
-      "https://images.unsplash.com/photo-1519389950473-47ba027781c?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1519389950473-47ba027781c?auto=format&fit=crop&w=560&q=75",
   },
   {
     step: "03",
@@ -41,7 +41,7 @@ const PAYMENT_STEPS = [
     body: "The remaining 50% is paid only when you approve the finished site. You own 100% of the code and domain.",
     badge: "100% Owned",
     photo:
-      "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=560&q=75",
   },
 ];
 

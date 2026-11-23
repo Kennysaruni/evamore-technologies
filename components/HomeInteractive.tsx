@@ -126,6 +126,7 @@ export function AnimatedUnderline({
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setInView(true);
+            observer.disconnect();
           }
         });
       },
@@ -139,18 +140,18 @@ export function AnimatedUnderline({
     <svg
       ref={ref}
       aria-hidden="true"
-      className={`pointer-events-none absolute text-[#FAD2C8] dark:text-[#FF6B00]/55 ${className}`}
+      className={`pointer-events-none absolute text-[#FAD2C8] dark:text-[#FF6B00]/55 ${
+        inView ? "om-draw-underline" : "om-underline-idle"
+      } ${className}`}
       viewBox="0 0 220 12"
       fill="none"
       preserveAspectRatio="none"
     >
       <path
-        pathLength={1}
         d="M3 9.5C58 2.5 154 2.5 217 8.5"
         stroke="currentColor"
         strokeWidth="3.8"
         strokeLinecap="round"
-        className={inView ? "om-draw-underline" : "om-underline-idle"}
       />
     </svg>
   );
@@ -195,22 +196,22 @@ const SERVICE_PREVIEWS: Record<
   { url: string; alt: string; badge: string }
 > = {
   websites: {
-    url: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=700&q=85",
+    url: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=480&q=75",
     alt: "Open laptop on a minimalist studio pedestal displaying a clean responsive website",
     badge: "Responsive",
   },
   "local-seo": {
-    url: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=700&q=85",
+    url: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=480&q=75",
     alt: "Laptop displaying local Google search and map visibility",
     badge: "Local Rank",
   },
   "quote-followup": {
-    url: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=700&q=85",
+    url: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=480&q=75",
     alt: "Smartphone showing instant quote alert notification",
     badge: "Same-Day",
   },
   "care-plan": {
-    url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=700&q=85",
+    url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=480&q=75",
     alt: "Clean monthly report view on laptop",
     badge: "Managed",
   },
@@ -218,15 +219,15 @@ const SERVICE_PREVIEWS: Record<
 
 const PROCESS_PHOTOS = [
   {
-    url: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=900&q=85",
+    url: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=680&q=75",
     alt: "Developer auditing a local contractor website at desk",
   },
   {
-    url: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1100&q=85",
+    url: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=760&q=75",
     alt: "Team discussing the website mockup around a warm wooden table with laptops",
   },
   {
-    url: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=85",
+    url: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=680&q=75",
     alt: "Modern sunlit studio window overlooking the city",
   },
 ];
@@ -420,6 +421,10 @@ export function ServicesAccordionSection() {
                       <img
                         src={preview.url}
                         alt={preview.alt}
+                        width={240}
+                        height={150}
+                        loading="lazy"
+                        decoding="async"
                         className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                       />
                     </div>
@@ -520,12 +525,8 @@ export function ProcessShowcaseSection() {
                 if (isLeft) prevStep();
                 else if (!isCenter) nextStep();
               }}
-              style={{
-                ...posStyle,
-                transition:
-                  "left 680ms cubic-bezier(0.22, 1, 0.36, 1), width 680ms cubic-bezier(0.22, 1, 0.36, 1), height 680ms cubic-bezier(0.22, 1, 0.36, 1)",
-              }}
-              className={`group absolute bottom-0 ${
+              style={posStyle}
+              className={`group absolute bottom-0 transition-opacity duration-500 ${
                 isCenter ? "cursor-default" : "cursor-pointer"
               }`}
             >
@@ -533,6 +534,10 @@ export function ProcessShowcaseSection() {
                 <img
                   src={photo.url}
                   alt={photo.alt}
+                  width={680}
+                  height={370}
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 />
                 <div
@@ -635,6 +640,10 @@ export function ProcessShowcaseSection() {
             key={centerIndex}
             src={PROCESS_PHOTOS[centerIndex].url}
             alt={PROCESS_PHOTOS[centerIndex].alt}
+            width={680}
+            height={335}
+            loading="lazy"
+            decoding="async"
             className="h-full w-full object-cover ev-fade"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />

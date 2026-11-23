@@ -26,9 +26,9 @@ export const metadata: Metadata = {
 };
 
 const ARTICLE_IMAGES = [
-  "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=85",
-  "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800&q=85",
-  "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=85",
+  "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=560&q=75",
+  "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=560&q=75",
+  "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=560&q=75",
 ];
 
 function IndustryLogoMark({ index }: { index: number }) {
@@ -161,8 +161,11 @@ export default function HomePage() {
                     className="absolute -bottom-[15px] right-0"
                   />
                   <img
-                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=240&q=80"
+                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=140&q=75"
                     alt="Quote response specialist"
+                    width={56}
+                    height={56}
+                    decoding="async"
                     className="h-12 w-12 rounded-[14px] object-cover shadow-md transition-transform duration-300 group-hover:scale-105 sm:h-14 sm:w-14 sm:rounded-[16px]"
                   />
                 </div>
@@ -197,8 +200,12 @@ export default function HomePage() {
               <div className="group absolute right-0 top-14 z-10 h-[275px] w-[225px] sm:h-[305px] sm:w-[275px]">
                 <div className="h-full w-full overflow-hidden rounded-[26px] sm:rounded-[28px]">
                   <img
-                    src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=85"
+                    src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=560&q=75"
                     alt="Happy team collaborating in a bright modern office"
+                    width={275}
+                    height={305}
+                    fetchPriority="high"
+                    decoding="async"
                     className="om-lens-img h-full w-full object-cover"
                   />
                 </div>
@@ -305,8 +312,12 @@ export default function HomePage() {
                 {/* 1. Left Tall Vertical Photo */}
                 <div className="group absolute bottom-0 left-0 top-0 w-[56%] overflow-hidden rounded-[26px]">
                   <img
-                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=85"
+                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=520&q=75"
                     alt="Developers planning a local business website"
+                    width={260}
+                    height={395}
+                    loading="lazy"
+                    decoding="async"
                     className="om-lens-img h-full w-full object-cover"
                   />
                 </div>
@@ -314,8 +325,12 @@ export default function HomePage() {
                 {/* 2. Top-Right Square Portrait Photo */}
                 <div className="group absolute right-0 top-12 h-[125px] w-[132px] overflow-hidden rounded-[24px] sm:h-[135px] sm:w-[142px]">
                   <img
-                    src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=500&q=80"
+                    src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=75"
                     alt="Specialist reviewing local search rankings"
+                    width={142}
+                    height={135}
+                    loading="lazy"
+                    decoding="async"
                     className="om-lens-img h-full w-full object-cover"
                   />
                 </div>
@@ -409,8 +424,12 @@ export default function HomePage() {
                 <div className="relative h-[260px]">
                   <div className="h-full w-full overflow-hidden rounded-[20px]">
                     <img
-                      src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=85"
+                      src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=560&q=75"
                       alt="Glamour Home Care website"
+                      width={460}
+                      height={260}
+                      loading="lazy"
+                      decoding="async"
                       className="om-lens-img h-full w-full object-cover"
                     />
                   </div>
@@ -458,8 +477,12 @@ export default function HomePage() {
                 <div className="group overflow-hidden rounded-[26px] border border-white/5 bg-[#1B1B1F] p-3 transition-colors duration-300 hover:border-[#FF6B00]/45">
                   <div className="relative h-[275px] overflow-hidden rounded-[20px]">
                     <img
-                      src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=85"
+                      src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=680&q=75"
                       alt="The Wealth Code Collective"
+                      width={640}
+                      height={275}
+                      loading="lazy"
+                      decoding="async"
                       className="om-lens-img h-full w-full object-cover"
                     />
                   </div>
@@ -488,8 +511,12 @@ export default function HomePage() {
                   <div className="flex items-center gap-4">
                     <div className="h-20 w-24 shrink-0 overflow-hidden rounded-[18px]">
                       <img
-                        src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=300&q=80"
+                        src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=240&q=75"
                         alt="NeuroSense Africa"
+                        width={96}
+                        height={80}
+                        loading="lazy"
+                        decoding="async"
                         className="om-lens-img h-full w-full object-cover"
                       />
                     </div>
@@ -615,6 +642,10 @@ export default function HomePage() {
                   <img
                     src="https://thewealthcodecollective.com/images/lavie_portrait.jpg"
                     alt="Lavie Pittmann"
+                    width={36}
+                    height={36}
+                    loading="lazy"
+                    decoding="async"
                     className="h-9 w-9 rounded-full object-cover border border-white/20"
                   />
                   <span className="text-xl font-semibold tracking-tight text-[#FFE4DE]">
@@ -653,6 +684,10 @@ export default function HomePage() {
                   <img
                     src="https://www.glamourhomecare.org/Website-Icon.png"
                     alt="Glamour Home Care logo"
+                    width={36}
+                    height={36}
+                    loading="lazy"
+                    decoding="async"
                     className="h-9 w-9 rounded-lg object-contain bg-white/95 p-1"
                   />
                   <span className="text-xl font-semibold tracking-tight text-[#FFE4DE]">
@@ -691,6 +726,10 @@ export default function HomePage() {
                   <img
                     src="https://www.neurosenseafrica.com/assets/Neurosciencelogo-BWzIUrUQ.svg"
                     alt="NeuroSense Africa logo"
+                    width={36}
+                    height={36}
+                    loading="lazy"
+                    decoding="async"
                     className="h-9 w-9 rounded-lg object-contain bg-white/95 p-1"
                   />
                   <span className="text-xl font-semibold tracking-tight text-[#FFE4DE]">
@@ -741,6 +780,10 @@ export default function HomePage() {
                     <img
                       src={item.avatarUrl}
                       alt={item.leader}
+                      width={36}
+                      height={36}
+                      loading="lazy"
+                      decoding="async"
                       className={`h-9 w-9 rounded-full object-cover ${idx > 0 ? "bg-white/95 p-1 object-contain" : ""
                         }`}
                     />
@@ -805,14 +848,22 @@ export default function HomePage() {
                   <img
                     src={ARTICLE_IMAGES[idx % ARTICLE_IMAGES.length]}
                     alt={post.title}
+                    width={370}
+                    height={220}
+                    loading="lazy"
+                    decoding="async"
                     className="om-lens-img h-full w-full object-cover"
                   />
                 </div>
 
                 <div className="flex items-center gap-2.5 text-xs">
                   <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80"
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=96&q=75"
                     alt="Kenny"
+                    width={24}
+                    height={24}
+                    loading="lazy"
+                    decoding="async"
                     className="h-6 w-6 rounded-full object-cover"
                   />
                   <span className="text-[var(--text-secondary)]">Kenny</span>

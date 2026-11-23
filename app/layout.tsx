@@ -1,10 +1,18 @@
 import type { Metadata } from "next";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { SITE_CONFIG } from "@/lib/site-data";
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-jakarta",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.evamoretechnologies.com"),
@@ -132,7 +140,7 @@ export default function RootLayout({
         name: SITE_CONFIG.founder,
         jobTitle: "Founder & Lead Full-Stack Developer",
         image:
-          "https://www.evamoretechnologies.com/Evamore%20Technologies%20Office%20Portrait.png",
+          "https://www.evamoretechnologies.com/evamore-founder-portrait.webp",
         url: "https://www.evamoretechnologies.com/about",
       },
       knowsAbout: [
@@ -200,19 +208,9 @@ export default function RootLayout({
       data-theme="light"
       data-scroll-behavior="smooth"
       suppressHydrationWarning
-      className="h-full antialiased"
+      className={`${plusJakartaSans.variable} h-full antialiased`}
     >
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

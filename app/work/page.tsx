@@ -20,13 +20,13 @@ export const metadata: Metadata = {
 
 const PROJECT_PHOTOS: Record<string, string> = {
   "glamour-home-care":
-    "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1000&q=85",
+    "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=680&q=75",
   "wealth-code-collective":
-    "https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&w=1000&q=85",
+    "https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&w=680&q=75",
   "neurosense-africa":
-    "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1000&q=85",
+    "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=680&q=75",
   "moonika-fashion-house":
-    "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1000&q=85",
+    "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=680&q=75",
 };
 
 const CASE_STUDY_DEEP_DIVES: Record<
@@ -202,6 +202,10 @@ export default function WorkPage() {
                           <img
                             src={photoUrl}
                             alt={`${project.name} desktop and mobile website showcase`}
+                            width={460}
+                            height={310}
+                            loading={idx === 0 ? "eager" : "lazy"}
+                            decoding="async"
                             className="om-lens-img h-full w-full object-cover"
                           />
                         </div>

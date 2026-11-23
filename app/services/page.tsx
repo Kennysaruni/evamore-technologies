@@ -20,10 +20,10 @@ export const metadata: Metadata = {
 };
 
 const SERVICE_DEEP_DIVE_PHOTOS = [
-  "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=85",
-  "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=900&q=85",
-  "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=85",
-  "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=85",
+  "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=640&q=75",
+  "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=640&q=75",
+  "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=640&q=75",
+  "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=640&q=75",
 ];
 
 const SERVICE_LONG_PROSE: Record<
@@ -218,6 +218,9 @@ export default function ServicesPage() {
                     <img
                       src={SERVICE_DEEP_DIVE_PHOTOS[idx]}
                       alt={service.shortTitle}
+                      width={260}
+                      height={155}
+                      decoding="async"
                       className="om-lens-img h-full w-full object-cover"
                     />
                   </div>
@@ -338,6 +341,10 @@ export default function ServicesPage() {
                       <img
                         src={SERVICE_DEEP_DIVE_PHOTOS[idx]}
                         alt={service.shortTitle}
+                        width={460}
+                        height={310}
+                        loading="lazy"
+                        decoding="async"
                         className="om-lens-img h-full w-full object-cover"
                       />
                     </div>

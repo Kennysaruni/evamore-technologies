@@ -24,7 +24,7 @@ const VALUES = [
     title: "Plain language",
     body: "No agency buzzwords or 30-page decks. We tell you exactly what is costing your business phone calls and quote requests, and how we will fix it in plain English.",
     photo:
-      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=560&q=75",
     badge: "Clear Copy",
   },
   {
@@ -32,7 +32,7 @@ const VALUES = [
     title: "Fast sites",
     body: "Engineered with React 19 and Next.js App Router instead of bloated templates so pages open immediately on cellular connections when local customers search for help.",
     photo:
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=560&q=75",
     badge: "Next.js Speed",
   },
   {
@@ -40,7 +40,7 @@ const VALUES = [
     title: "Honest numbers",
     body: "We measure success in leads in, quotes sent, and jobs booked—never vanity impressions or incomprehensible marketing charts.",
     photo:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=85",
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=560&q=75",
     badge: "1-Line Report",
   },
 ];
@@ -165,8 +165,12 @@ export default function AboutPage() {
             <ScrollReveal variant="left" delay={140} className="group relative h-[310px] sm:h-[350px] lg:col-span-7">
               <div className="h-full w-full overflow-hidden rounded-[28px]">
                 <img
-                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1100&q=85"
+                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=760&q=75"
                   alt="Remote collaboration with Canadian business owners"
+                  width={680}
+                  height={350}
+                  fetchPriority="high"
+                  decoding="async"
                   className="om-lens-img h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent rounded-[28px]" />
@@ -230,8 +234,11 @@ export default function AboutPage() {
               <div className="group relative h-[180px] w-full">
                 <div className="h-full w-full overflow-hidden rounded-[26px]">
                   <img
-                    src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=85"
+                    src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=560&q=75"
                     alt="Kenny's full-stack development desk"
+                    width={460}
+                    height={180}
+                    decoding="async"
                     className="om-lens-img h-full w-full object-cover"
                   />
                 </div>
@@ -269,8 +276,12 @@ export default function AboutPage() {
               <div className="group relative mx-auto aspect-square w-full max-w-[400px]">
                 <div className="h-full w-full overflow-hidden rounded-[28px] bg-[#141416]">
                   <img
-                    src="/Evamore Technologies Office Portrait.png"
+                    src="/evamore-founder-portrait.webp"
                     alt="Kenny, Developer and Founder of Evamore Technologies"
+                    width={400}
+                    height={400}
+                    loading="lazy"
+                    decoding="async"
                     className="om-lens-img h-full w-full object-cover object-top"
                   />
                 </div>
@@ -485,6 +496,10 @@ export default function AboutPage() {
                   <img
                     src={val.photo}
                     alt={val.title}
+                    width={370}
+                    height={225}
+                    loading="lazy"
+                    decoding="async"
                     className="om-lens-img h-full w-full object-cover"
                   />
                 </div>

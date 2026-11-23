@@ -7,6 +7,17 @@ const nextConfig: NextConfig = {
   },
   cacheComponents: true,
   partialPrefetching: true,
+  headers: async () => [
+    {
+      source: "/:all*(svg|jpg|jpeg|png|webp|ico)",
+      headers: [
+        {
+          key: "Cache-Control",
+          value: "public, max-age=31536000, immutable",
+        },
+      ],
+    },
+  ],
   turbopack: {
     rules: {
       "*.css": {

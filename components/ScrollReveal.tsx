@@ -27,19 +27,28 @@ export function ScrollReveal({
   threshold = 0.12,
 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement | null>(null);
-  const [visible, setVisible] = useState<boolean>(() => {
-    return typeof window !== "undefined" && typeof IntersectionObserver === "undefined";
-  });
+  const [visible, setVisible] = useState<boolean>(true);
 
   useEffect(() => {
     const node = ref.current;
     if (!node || typeof IntersectionObserver === "undefined") return;
+
+    const rect = node.getBoundingClientRect();
+    const alreadyInViewport = rect.top < window.innerHeight + 40;
+    if (alreadyInViewport) {
+      return;
+    }
+
+    const frameId = requestAnimationFrame(() => {
+      setVisible(false);
+    });
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setVisible(true);
+            observer.disconnect();
           }
         });
       },
@@ -50,14 +59,17 @@ export function ScrollReveal({
     );
 
     observer.observe(node);
-    return () => observer.disconnect();
+    return () => {
+      cancelAnimationFrame(frameId);
+      observer.disconnect();
+    };
   }, [threshold]);
 
-  let hiddenTransform = "scale(0.92)";
+  let hiddenTransform = "scale(0.94)";
   if (variant === "left") {
-    hiddenTransform = "translate3d(-42px, 0, 0) scale(0.975)";
+    hiddenTransform = "translate3d(-32px, 0, 0) scale(0.98)";
   } else if (variant === "right") {
-    hiddenTransform = "translate3d(42px, 0, 0) scale(0.975)";
+    hiddenTransform = "translate3d(32px, 0, 0) scale(0.98)";
   } else if (variant === "fade") {
     hiddenTransform = "scale(0.985)";
   }
@@ -65,12 +77,11 @@ export function ScrollReveal({
   const style: React.CSSProperties = {
     opacity: visible ? 1 : 0,
     transform: visible ? "translate3d(0, 0, 0) scale(1)" : hiddenTransform,
-    filter: visible ? "blur(0px)" : "blur(7px)",
-    transitionProperty: "opacity, transform, filter",
+    transitionProperty: "opacity, transform",
     transitionDuration: `${duration}ms`,
     transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
     transitionDelay: `${delay}ms`,
-    willChange: "opacity, transform, filter",
+    willChange: visible ? "auto" : "opacity, transform",
   };
 
   return (
